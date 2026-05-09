@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웨체스터제일교회 | Korean Church of Westchester</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --teal:        #2E9CB5;
+      --teal-dark:   #1E7A90;
+      --teal-light:  #5CC4D8;
+      --green:       #8DC63F;
+      --green-dark:  #6EA02F;
+      --white:       #ffffff;
+      --bg:          #F7FAFB;
+      --text:        #1A2332;
+      --text-mid:    #4A5568;
+      --text-light:  #718096;
+      --border:      #E2E8F0;
+      --shadow:      0 4px 20px rgba(0,0,0,0.08);
+      --shadow-lg:   0 8px 35px rgba(0,0,0,0.14);
+      --r:           12px;
+      --r-lg:        20px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Noto Sans KR','Inter',sans-serif;color:var(--text);background:var(--white);line-height:1.7}
+
+    /* ── NAVBAR ── */
+    .nav{
+      position:fixed;top:0;width:100%;z-index:1000;
+      background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(0,0,0,0.07);
+      padding:.7rem 2rem;
+      display:flex;align-items:center;justify-content:space-between;
+      box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:box-shadow .3s;
+    }
+    .nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+    .nav-logo img{height:46px;width:auto}
+    .nav-logo-fallback{display:none}
+    .nav-logo-fallback .t1{font-size:1rem;font-weight:700;color:var(--teal);line-height:1.2}
+    .nav-logo-fallback .t2{font-size:.7rem;font-weight:700;color:var(--green);letter-spacing:.06em;text-transform:uppercase}
+    .nav-links{display:flex;gap:.15rem;list-style:none;align-items:center}
+    .nav-links a{
+      text-decoration:none;color:var(--text-mid);font-size:.88rem;font-weight:500;
+      padding:.45rem .85rem;border-radius:8px;transition:all .2s;
+    }
+    .nav-links a:hover{color:var(--teal);background:rgba(46,156,181,.08)}
+    .nav-donate{
+      background:linear-gradient(135deg,var(--green),var(--green-dark)) !important;
+      color:#fff !important;border-radius:25px !important;
+      padding:.45rem 1.1rem !important;font-weight:700 !important;
+      box-shadow:0 3px 10px rgba(141,198,63,.3);
+    }
+    .nav-donate:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(141,198,63,.45) !important}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+    .hamburger span{width:23px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+
+    /* ── HERO ── */
+    .hero{
+      min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;
+    }
+    .hero-bg{
+      position:absolute;inset:0;
+      background-image:url('church-building.png');
+      background-size:cover;background-position:center top;
+      background-color:#1a3040;
+    }
+    .hero-bg::after{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(160deg,rgba(10,25,40,.72) 0%,rgba(30,100,130,.4) 55%,rgba(50,130,60,.18) 100%);
+    }
+    .hero-content{
+      position:relative;z-index:1;text-align:center;color:#fff;
+      max-width:820px;padding:2rem;
+    }
+    .hero-ko{font-size:1.25rem;font-weight:300;letter-spacing:.18em;margin-bottom:.4rem;opacity:.9;text-shadow:0 1px 5px rgba(0,0,0,.3)}
+    .hero-en{font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:800;line-height:1.15;text-shadow:0 2px 10px rgba(0,0,0,.3)}
+    .hero-of{color:#a8e6f0;font-weight:500}
+    .hero-verse{
+      font-size:1rem;font-style:italic;opacity:.88;
+      max-width:520px;margin:1.4rem auto 2.2rem;
+      text-shadow:0 1px 4px rgba(0,0,0,.3);line-height:1.8;
+    }
+    .hero-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+    .btn{
+      padding:.85rem 1.9rem;border-radius:50px;font-size:.97rem;font-weight:700;
+      text-decoration:none;border:none;cursor:pointer;
+      transition:all .3s;display:inline-flex;align-items:center;gap:.5rem;
+      font-family:inherit;
+    }
+    .btn-teal{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;box-shadow:0 4px 16px rgba(46,156,181,.4)}
+    .btn-teal:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(46,156,181,.5)}
+    .btn-outline-white{background:rgba(255,255,255,.14);color:#fff;border:2px solid rgba(255,255,255,.55);backdrop-filter:blur(4px)}
+    .btn-outline-white:hover{background:rgba(255,255,255,.25);transform:translateY(-2px)}
+    .btn-green{background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;box-shadow:0 4px 16px rgba(141,198,63,.4)}
+    .btn-green:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(141,198,63,.5)}
+    .scroll-hint{
+      position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);
+      color:rgba(255,255,255,.65);font-size:.8rem;
+      display:flex;flex-direction:column;align-items:center;gap:.4rem;
+      animation:bob 2.2s infinite;
+    }
+    @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-9px)}}
+
+    /* ── SECTIONS ── */
+    section{padding:5rem 0}
+    .container{max-width:1180px;margin:0 auto;padding:0 1.75rem}
+    .sec-hd{text-align:center;margin-bottom:3rem}
+    .badge{
+      display:inline-block;
+      background:linear-gradient(135deg,var(--teal-light),var(--teal));
+      color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+      padding:.3rem 1rem;border-radius:20px;margin-bottom:.7rem;
+    }
+    .sec-title{font-size:clamp(1.75rem,3.8vw,2.4rem);font-weight:700;color:var(--text);margin-bottom:.6rem}
+    .sec-sub{font-size:1rem;color:var(--text-light);max-width:580px;margin:0 auto}
+    .divider{width:55px;height:4px;background:linear-gradient(90deg,var(--teal),var(--green));border-radius:2px;margin:1rem auto 0}
+
+    /* ── EVANGELISM INVITE ── */
+    #invite{
+      background:linear-gradient(135deg,#f0faf3 0%,#e8f7fb 50%,#f5fef0 100%);
+      padding:5rem 0;position:relative;overflow:hidden;
+    }
+    #invite::before{
+      content:'';position:absolute;top:-60px;right:-60px;
+      width:280px;height:280px;border-radius:50%;
+      background:radial-gradient(circle,rgba(141,198,63,.12),transparent 70%);
+    }
+    #invite::after{
+      content:'';position:absolute;bottom:-40px;left:-40px;
+      width:220px;height:220px;border-radius:50%;
+      background:radial-gradient(circle,rgba(46,156,181,.1),transparent 70%);
+    }
+    .invite-inner{
+      display:grid;grid-template-columns:auto 1fr;
+      gap:3.5rem;align-items:center;position:relative;z-index:1;
+    }
+    /* Poster card */
+    .invite-poster{
+      position:relative;flex-shrink:0;
+    }
+    .invite-poster img{
+      width:320px;border-radius:20px;
+      box-shadow:0 20px 60px rgba(0,0,0,.18),0 6px 20px rgba(0,0,0,.1);
+      display:block;
+      transform:rotate(-1.5deg);
+      transition:transform .4s ease;
+    }
+    .invite-poster:hover img{transform:rotate(0deg) scale(1.02)}
+    .invite-poster-badge{
+      position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+      background:linear-gradient(135deg,var(--green),var(--green-dark));
+      color:#fff;font-size:.78rem;font-weight:800;letter-spacing:.1em;
+      padding:.4rem 1.4rem;border-radius:30px;white-space:nowrap;
+      box-shadow:0 4px 12px rgba(141,198,63,.4);
+    }
+    /* Info panel */
+    .invite-info{padding:.5rem 0}
+    .invite-eyebrow{
+      font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--green-dark);margin-bottom:.6rem;
+      display:flex;align-items:center;gap:.5rem;
+    }
+    .invite-eyebrow::before{
+      content:'';width:28px;height:2px;background:var(--green);border-radius:2px;
+    }
+    .invite-title{
+      font-size:clamp(2rem,4vw,2.8rem);font-weight:900;
+      color:var(--text);line-height:1.2;margin-bottom:.4rem;
+    }
+    .invite-title .hl{color:var(--teal)}
+    .invite-tagline{
+      font-size:1rem;color:var(--text-light);margin-bottom:2rem;line-height:1.7;
+    }
+    /* Date/time big display */
+    .invite-datetime{
+      display:flex;gap:1.5rem;align-items:stretch;margin-bottom:2rem;flex-wrap:wrap;
+    }
+    .idt-box{
+      background:#fff;border-radius:16px;padding:1.2rem 1.6rem;
+      box-shadow:0 4px 16px rgba(0,0,0,.07);
+      border-top:4px solid var(--teal);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      min-width:120px;
+    }
+    .idt-box.green{border-top-color:var(--green)}
+    .idt-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:.3rem}
+    .idt-value{font-size:1.6rem;font-weight:900;color:var(--text);line-height:1.1}
+    .idt-sub{font-size:.78rem;color:var(--text-light);margin-top:.15rem}
+    /* Details list */
+    .invite-details{display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem}
+    .idet{display:flex;align-items:flex-start;gap:.8rem}
+    .idet-icon{
+      width:34px;height:34px;border-radius:9px;flex-shrink:0;
+      background:linear-gradient(135deg,var(--teal-light),var(--teal));
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-size:.82rem;
+    }
+    .idet-icon.g{background:linear-gradient(135deg,var(--green),var(--green-dark))}
+    .idet-text{font-size:.9rem;color:var(--text-mid);line-height:1.5;padding-top:.4rem}
+    .idet-text strong{color:var(--text);display:block;font-size:.82rem;margin-bottom:.05rem}
+    .invite-cta{
+      display:flex;gap:.9rem;flex-wrap:wrap;
+    }
+    @media(max-width:860px){
+      .invite-inner{grid-template-columns:1fr;justify-items:center}
+      .invite-poster img{width:260px}
+    }
+
+    /* ── ABOUT ── */
+    #about{background:var(--bg)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+    .card{background:#fff;border-radius:var(--r-lg);padding:2.4rem;box-shadow:var(--shadow)}
+    .card h3{font-size:1.3rem;color:var(--teal);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
+    .card p{color:var(--text-mid);font-size:.95rem;line-height:1.9;margin-bottom:.9rem}
+    .card p:last-child{margin-bottom:0}
+    .info-box{
+      margin-top:1.4rem;padding:1.1rem 1.3rem;
+      background:linear-gradient(135deg,#eef8fb,#f0faf0);
+      border-radius:10px;border-left:4px solid var(--teal);
+    }
+    .info-box .ib-title{font-size:.85rem;font-weight:700;color:var(--teal);margin-bottom:.45rem}
+    .info-box .ib-body{font-size:.86rem;color:var(--text-mid);line-height:1.85}
+    .pastor-wrap{display:flex;gap:1.6rem;align-items:flex-start}
+    .pastor-avatar{
+      width:160px;height:160px;border-radius:16px;flex-shrink:0;
+      background:linear-gradient(135deg,var(--teal),var(--green));
+      display:flex;align-items:center;justify-content:center;
+      font-size:2.6rem;color:#fff;overflow:hidden;
+      box-shadow:0 4px 16px rgba(0,0,0,0.15);
+    }
+    .pastor-avatar img{width:100%;height:100%;object-fit:cover;object-position:center top}
+    .pastor-meta h3{font-size:1.25rem;font-weight:800;color:var(--text)}
+    .pastor-meta .role{font-size:.88rem;color:var(--teal);font-weight:600;margin-bottom:.6rem}
+    .pastor-meta .quote{font-style:italic;font-size:.9rem;color:var(--teal-light)}
+
+    /* ── SERMONS ── */
+    #sermons{background:#fff}
+    .tab-bar{
+      display:flex;gap:.4rem;justify-content:center;margin-bottom:2.5rem;
+      background:var(--bg);padding:.45rem;border-radius:50px;
+      width:fit-content;margin-left:auto;margin-right:auto;
+    }
+    .tab{
+      padding:.55rem 1.6rem;border-radius:40px;border:none;
+      background:transparent;color:var(--text-mid);font-size:.92rem;font-weight:500;
+      cursor:pointer;transition:all .3s;font-family:inherit;
+    }
+    .tab.on{background:#fff;color:var(--teal);box-shadow:0 2px 10px rgba(0,0,0,.09);font-weight:700}
+    .sermon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.5rem}
+    .s-card{
+      background:#fff;border-radius:var(--r);overflow:hidden;
+      box-shadow:var(--shadow);transition:all .3s;cursor:pointer;
+    }
+    .s-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+    .s-thumb{position:relative;width:100%;padding-top:56.25%;background:#1a2a3a;overflow:hidden}
+    .s-thumb img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:transform .3s}
+    .s-card:hover .s-thumb img{transform:scale(1.04)}
+    .s-play{
+      position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+      width:52px;height:52px;background:rgba(255,255,255,.9);border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.2rem;color:var(--teal);transition:all .3s;
+    }
+    .s-card:hover .s-play{background:#fff;transform:translate(-50%,-50%) scale(1.1)}
+    .s-badge{
+      position:absolute;top:.7rem;left:.7rem;
+      background:var(--teal);color:#fff;
+      font-size:.68rem;font-weight:700;letter-spacing:.04em;
+      padding:.18rem .55rem;border-radius:4px;
+    }
+    .s-badge.fri{background:var(--green)}
+    .s-info{padding:1.2rem}
+    .s-date{font-size:.76rem;color:var(--text-light);margin-bottom:.3rem}
+    .s-info h4{font-size:.97rem;font-weight:600;color:var(--text);margin-bottom:.28rem;line-height:1.45}
+    .s-preacher{font-size:.83rem;color:var(--teal);font-weight:500}
+
+    /* ── VIDEO MODAL ── */
+    .modal{
+      position:fixed;inset:0;background:rgba(0,0,0,.88);
+      z-index:2000;display:none;align-items:center;justify-content:center;padding:1rem;
+    }
+    .modal.on{display:flex}
+    .modal-x{
+      position:absolute;top:1rem;right:1rem;
+      background:rgba(255,255,255,.12);color:#fff;
+      border:2px solid rgba(255,255,255,.3);border-radius:50%;
+      width:40px;height:40px;font-size:1rem;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;transition:all .2s;
+    }
+    .modal-x:hover{background:rgba(255,255,255,.22)}
+    .vid-wrap{width:100%;max-width:880px;position:relative}
+    .vid-ratio{position:relative;padding-top:56.25%;border-radius:var(--r);overflow:hidden}
+    .vid-ratio iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+
+    /* ── NEWS & EVENTS ── */
+    #news{background:var(--bg)}
+    .news-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+    .panel{background:#fff;border-radius:var(--r-lg);padding:2rem;box-shadow:var(--shadow);display:flex;flex-direction:column}
+    .panel-scroll{overflow-y:auto;max-height:480px;padding-right:.25rem}
+    .panel-scroll::-webkit-scrollbar{width:4px}
+    .panel-scroll::-webkit-scrollbar-track{background:var(--bg);border-radius:4px}
+    .panel-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+    .panel h3{
+      font-size:1.1rem;color:var(--text);margin-bottom:1.3rem;
+      padding-bottom:.7rem;border-bottom:2px solid var(--border);
+      display:flex;align-items:center;gap:.45rem;
+    }
+    .ni{padding:.9rem 0;border-bottom:1px solid var(--border)}
+    .ni:last-child{border-bottom:none}
+    .ni-cat{
+      font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+      padding:.14rem .5rem;border-radius:4px;margin-bottom:.38rem;display:inline-block;
+    }
+    .c-w{background:#EBF8FF;color:#2B6CB0}   /* 예배 - 파랑 */
+    .c-f{background:#FFF0E6;color:#C05621}   /* 전도 - 주황 */
+    .c-p{background:#F0FFF4;color:#276749}   /* 기도/청소년 - 초록 */
+    .c-e{background:#FFF5F7;color:#97266D}   /* 교육/기타 - 분홍 */
+    .ni h4{font-size:.94rem;font-weight:600;color:var(--text);margin-bottom:.25rem;line-height:1.4}
+    .ni p{font-size:.84rem;color:var(--text-light);line-height:1.65}
+    .ev{display:flex;gap:.9rem;padding:.9rem 0;border-bottom:1px solid var(--border);align-items:flex-start}
+    .ev:last-child{border-bottom:none}
+    .ev-date{
+      min-width:50px;height:50px;
+      background:linear-gradient(135deg,var(--teal),var(--teal-light));
+      border-radius:10px;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;color:#fff;flex-shrink:0;
+    }
+    .ev-date .d{font-size:1.25rem;font-weight:800;line-height:1}
+    .ev-date .m{font-size:.6rem;font-weight:600;text-transform:uppercase;opacity:.85}
+    .ev-info h4{font-size:.94rem;font-weight:600;color:var(--text);margin-bottom:.2rem}
+    .ev-info p{font-size:.82rem;color:var(--text-light)}
+
+    /* ── BULLETIN ── */
+    #bulletin{background:#fff}
+    .bul-layout{display:grid;grid-template-columns:1.55fr 1fr;gap:2.5rem;align-items:start}
+    .bul-preview{background:var(--bg);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow)}
+    .bul-phead{
+      background:linear-gradient(135deg,var(--teal),var(--teal-light));
+      color:#fff;padding:1.2rem 1.6rem;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .bul-phead h3{font-size:1rem;font-weight:700}
+    .bul-phead .bd{font-size:.82rem;opacity:.85}
+    .bul-pbody{padding:1.5rem}
+    .bul-frame{
+      width:100%;height:380px;border:1px solid var(--border);
+      border-radius:var(--r);background:#fff;overflow:hidden;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+    }
+    .bul-frame iframe{width:100%;height:100%;border:none}
+    .bul-placeholder{
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      padding:2rem;text-align:center;height:100%;
+      background:linear-gradient(135deg,#eef9fb,#edf9ee);
+    }
+    .bul-placeholder .bp-icon{font-size:3.5rem;margin-bottom:.9rem}
+    .bul-placeholder .bp-title{font-size:1.05rem;font-weight:700;color:var(--teal);margin-bottom:.3rem}
+    .bul-placeholder .bp-date{font-size:.87rem;color:var(--text-light);margin-bottom:1.2rem}
+    .bul-inner-card{
+      width:82%;background:#fff;border-radius:10px;
+      padding:1.3rem;box-shadow:0 2px 10px rgba(0,0,0,.07);text-align:left;
+    }
+    .bul-inner-card .bc-title{font-size:.85rem;font-weight:700;color:var(--teal);margin-bottom:.5rem}
+    .bul-inner-card .bc-row{font-size:.82rem;color:var(--text-mid);padding:.18rem 0}
+    .bul-actions{display:flex;gap:.7rem;margin-top:1rem}
+    .bsm{
+      padding:.48rem 1.1rem;font-size:.84rem;border-radius:25px;border:none;
+      cursor:pointer;font-weight:700;transition:all .2s;
+      display:flex;align-items:center;gap:.38rem;text-decoration:none;font-family:inherit;
+    }
+    .bsm-fill{background:var(--teal);color:#fff}.bsm-fill:hover{background:var(--teal-dark)}
+    .bsm-out{background:transparent;border:2px solid var(--teal);color:var(--teal)}
+    .bsm-out:hover{background:var(--teal);color:#fff}
+    .bul-list{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow);overflow:hidden}
+    .bul-lhead{
+      background:linear-gradient(135deg,var(--green),var(--green-dark));
+      color:#fff;padding:1.2rem 1.4rem;
+    }
+    .bul-lhead h3{font-size:1rem;font-weight:700}
+    .bli{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:.82rem 1.4rem;border-bottom:1px solid var(--border);
+      transition:background .2s;
+    }
+    .bli:last-child{border-bottom:none}
+    .bli:hover{background:var(--bg)}
+    .bli-title{font-size:.9rem;font-weight:500;color:var(--text)}
+    .bli-date{font-size:.76rem;color:var(--text-light)}
+    .bli-dl{color:var(--teal);font-size:.95rem;cursor:pointer;padding:.28rem .45rem;border-radius:6px;transition:all .2s}
+    .bli-dl:hover{background:rgba(46,156,181,.1)}
+
+    /* ── VISIT ── */
+    #visit{background:var(--bg)}
+    .visit-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:2.5rem;align-items:start}
+    .visit-info{background:#fff;border-radius:var(--r-lg);padding:2.3rem;box-shadow:var(--shadow)}
+    .visit-info h3{font-size:1.25rem;color:var(--teal);margin-bottom:1.4rem}
+    .vd{display:flex;gap:.9rem;margin-bottom:1.2rem;align-items:flex-start}
+    .vd-icon{
+      width:40px;height:40px;border-radius:10px;flex-shrink:0;
+      background:linear-gradient(135deg,var(--teal-light),var(--teal));
+      display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem;
+    }
+    .vd-icon.g{background:linear-gradient(135deg,var(--green),var(--green-dark))}
+    .vd-text h4{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:.15rem}
+    .vd-text p{font-size:.84rem;color:var(--text-light);line-height:1.65}
+    .vd-text a{color:var(--teal);text-decoration:none}.vd-text a:hover{text-decoration:underline}
+    .cform{background:#fff;border-radius:var(--r-lg);padding:2.3rem;box-shadow:var(--shadow)}
+    .cform h3{font-size:1.25rem;color:var(--text);margin-bottom:1.4rem}
+    .fr2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .fg{margin-bottom:1rem}
+    .fg label{display:block;font-size:.84rem;font-weight:600;color:var(--text-mid);margin-bottom:.38rem}
+    .fg label .req{color:#E53E3E;margin-left:.15rem}
+    .fc{
+      width:100%;padding:.72rem 1rem;border:1.5px solid var(--border);border-radius:10px;
+      font-size:.93rem;color:var(--text);background:var(--bg);
+      transition:all .2s;font-family:inherit;
+    }
+    .fc:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 3px rgba(46,156,181,.12)}
+    textarea.fc{resize:vertical;min-height:96px}
+    .fsub{
+      width:100%;padding:.88rem;
+      background:linear-gradient(135deg,var(--teal),var(--teal-dark));
+      color:#fff;border:none;border-radius:50px;font-size:.97rem;font-weight:700;
+      cursor:pointer;transition:all .3s;font-family:inherit;
+      display:flex;align-items:center;justify-content:center;gap:.5rem;
+    }
+    .fsub:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(46,156,181,.4)}
+
+    /* ── VISION ── */
+    #vision{
+      background:linear-gradient(150deg,#0a1e2d 0%,#0e2e44 40%,#0d3320 100%);
+      color:#fff;padding:6rem 0;position:relative;overflow:hidden;
+    }
+    #vision::before{
+      content:'';position:absolute;inset:0;
+      background:
+        radial-gradient(ellipse 60% 80% at 20% 50%,rgba(46,156,181,.12) 0%,transparent 60%),
+        radial-gradient(ellipse 50% 70% at 80% 50%,rgba(141,198,63,.1) 0%,transparent 60%);
+      pointer-events:none;
+    }
+    .vis-hd{text-align:center;margin-bottom:1rem;position:relative;z-index:1}
+    .vis-badge{
+      display:inline-block;background:rgba(255,255,255,.12);
+      color:rgba(255,255,255,.85);font-size:.72rem;font-weight:700;
+      letter-spacing:.15em;text-transform:uppercase;
+      padding:.28rem 1rem;border-radius:20px;border:1px solid rgba(255,255,255,.2);
+      margin-bottom:.8rem;
+    }
+    .vis-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:.4rem}
+    .vis-title span{
+      background:linear-gradient(90deg,#5CC4D8,#8DC63F);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    }
+    .vis-sub{font-size:.97rem;opacity:.72;max-width:560px;margin:0 auto 3rem;line-height:1.8}
+    /* WORLD acronym row */
+    .world-row{
+      display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;
+      margin-bottom:3.5rem;position:relative;z-index:1;
+    }
+    .wcard{
+      flex:1;min-width:140px;max-width:200px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:18px;padding:1.8rem 1rem 1.5rem;
+      text-align:center;
+      transition:all .35s;cursor:default;
+      backdrop-filter:blur(6px);
+    }
+    .wcard:hover{
+      background:rgba(255,255,255,.11);
+      transform:translateY(-6px);
+      border-color:rgba(255,255,255,.25);
+      box-shadow:0 12px 36px rgba(0,0,0,.3);
+    }
+    .wcard-letter{
+      font-size:3.8rem;font-weight:900;line-height:1;
+      margin-bottom:.5rem;display:block;
+    }
+    .wcard.w .wcard-letter{color:#5CC4D8}
+    .wcard.o .wcard-letter{color:#7dd98a}
+    .wcard.r .wcard-letter{color:#f6a83c}
+    .wcard.l .wcard-letter{color:#e07bdb}
+    .wcard.d .wcard-letter{color:#8DC63F}
+    .wcard-word{font-size:.88rem;font-weight:700;letter-spacing:.06em;color:rgba(255,255,255,.9);margin-bottom:.35rem}
+    .wcard-ko{font-size:.8rem;color:rgba(255,255,255,.55)}
+    /* 2026 vision banner */
+    .vis-banner{
+      position:relative;z-index:1;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:20px;padding:2.2rem 2.5rem;
+      max-width:820px;margin:0 auto 3.5rem;
+      display:flex;gap:2rem;align-items:center;flex-wrap:wrap;
+      backdrop-filter:blur(8px);
+    }
+    .vis-banner-year{
+      font-size:3rem;font-weight:900;line-height:1;
+      background:linear-gradient(135deg,#5CC4D8,#8DC63F);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      flex-shrink:0;
+    }
+    .vis-banner-body{flex:1;min-width:200px}
+    .vis-banner-body h3{font-size:1.25rem;font-weight:800;margin-bottom:.5rem;color:#fff}
+    .vis-banner-body p{font-size:.88rem;color:rgba(255,255,255,.68);line-height:1.85}
+    .vis-banner-body .vis-tag{
+      display:inline-block;background:linear-gradient(135deg,#8DC63F,#6EA02F);
+      color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.06em;
+      padding:.2rem .65rem;border-radius:20px;margin-bottom:.5rem;
+    }
+    /* Worship schedule */
+    .wship-grid{
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));
+      gap:1rem;position:relative;z-index:1;max-width:1000px;margin:0 auto;
+    }
+    .wship-card{
+      background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+      border-radius:16px;padding:1.4rem 1.2rem;text-align:center;
+      transition:all .3s;backdrop-filter:blur(6px);
+    }
+    .wship-card:hover{background:rgba(255,255,255,.12);transform:translateY(-4px)}
+    .wship-icon{
+      width:46px;height:46px;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      margin:0 auto .9rem;font-size:1.15rem;
+    }
+    .wship-icon.sun{background:linear-gradient(135deg,#5CC4D8,#2E9CB5)}
+    .wship-icon.fri{background:linear-gradient(135deg,#e07bdb,#9b3aab)}
+    .wship-icon.ss {background:linear-gradient(135deg,#f6a83c,#d4821a)}
+    .wship-icon.youth{background:linear-gradient(135deg,#7dd98a,#3aab56)}
+    .wship-icon.cell{background:linear-gradient(135deg,#8DC63F,#6EA02F)}
+    .wship-name{font-size:.78rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:.3rem}
+    .wship-time{font-size:1.45rem;font-weight:800;color:#fff;line-height:1.1;margin-bottom:.2rem}
+    .wship-loc{font-size:.76rem;color:rgba(255,255,255,.5)}
+    .wship-day{font-size:.78rem;color:rgba(255,255,255,.45);margin-top:.15rem}
+
+    /* ── DONATE ── */
+    #donate{
+      background:linear-gradient(150deg,#0d1e2e 0%,#1a3a50 50%,#0d2535 100%);
+      color:#fff;text-align:center;padding:5rem 0 4rem;position:relative;overflow:hidden;
+    }
+    #donate::before{
+      content:'';position:absolute;top:-40%;left:-15%;
+      width:55%;height:180%;
+      background:radial-gradient(circle,rgba(141,198,63,.07) 0%,transparent 70%);
+    }
+    #donate::after{
+      content:'';position:absolute;top:-25%;right:-8%;
+      width:45%;height:150%;
+      background:radial-gradient(circle,rgba(46,156,181,.1) 0%,transparent 70%);
+    }
+    .don-con{position:relative;z-index:1}
+    .don-icon{font-size:3.2rem;display:block;margin-bottom:.9rem}
+    .don-title{font-size:clamp(1.8rem,3.8vw,2.5rem);font-weight:800;margin-bottom:.9rem}
+    .don-sub{font-size:1.02rem;opacity:.78;max-width:560px;margin:0 auto 1rem;line-height:1.85}
+    .don-verse{font-style:italic;font-size:.9rem;color:#a8e6f0;max-width:480px;margin:0 auto 1.8rem;opacity:.88}
+    /* Donate button area */
+    .don-btn-wrap{display:flex;flex-direction:column;align-items:center;gap:1rem;margin-bottom:2.5rem}
+    .don-types{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center}
+    .don-type-pill{
+      background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);
+      border-radius:50px;padding:.38rem 1.1rem;font-size:.84rem;color:rgba(255,255,255,.82);
+      backdrop-filter:blur(6px);display:flex;align-items:center;gap:.35rem;letter-spacing:.01em;
+    }
+    .don-btn-outer{position:relative;display:inline-block}
+    .don-main-btn{
+      position:relative;display:inline-flex;align-items:center;gap:.7rem;
+      padding:1.05rem 2.8rem;font-size:1.18rem;font-weight:800;color:#fff;
+      background:linear-gradient(130deg,#8DC63F 0%,#3ab87a 40%,#2E9CB5 100%);
+      border:none;border-radius:60px;cursor:pointer;text-decoration:none;
+      letter-spacing:.04em;overflow:hidden;
+      box-shadow:0 6px 28px rgba(46,156,181,.5),0 2px 8px rgba(0,0,0,.25);
+      animation:don-glow 2.8s ease-in-out infinite;
+      transition:transform .2s,box-shadow .2s;
+    }
+    .don-main-btn::before{
+      content:'';position:absolute;top:0;left:-110%;width:55%;height:100%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
+      animation:don-shimmer 3.2s ease-in-out infinite;
+    }
+    .don-main-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 42px rgba(46,156,181,.6),0 0 0 7px rgba(141,198,63,.22)}
+    .don-main-btn .btn-heart{font-size:1.35rem;animation:heartbeat 1.5s ease-in-out infinite}
+    .don-pulse-ring{
+      position:absolute;inset:0;border-radius:60px;
+      border:2px solid rgba(141,198,63,.55);
+      animation:ring-out 2.8s ease-out infinite;pointer-events:none;
+    }
+    .don-btn-note{font-size:.8rem;color:rgba(255,255,255,.5);margin-top:.2rem;letter-spacing:.02em}
+    @keyframes don-glow{
+      0%,100%{box-shadow:0 6px 28px rgba(46,156,181,.5),0 0 0 0 rgba(141,198,63,.35)}
+      50%{box-shadow:0 6px 28px rgba(46,156,181,.5),0 0 0 14px rgba(141,198,63,0)}
+    }
+    @keyframes don-shimmer{0%{left:-110%}55%,100%{left:120%}}
+    @keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.3)}28%{transform:scale(1)}42%{transform:scale(1.18)}56%{transform:scale(1)}}
+    @keyframes ring-out{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.3);opacity:0}}
+    /* Donation info cards */
+    .don-info-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;
+      max-width:680px;margin:0 auto 2.2rem;
+    }
+    @media(max-width:560px){.don-info-grid{grid-template-columns:1fr}}
+    .don-info-card{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:18px;padding:1.5rem 1.4rem;
+      text-align:left;backdrop-filter:blur(8px);
+      transition:background .2s,transform .2s;
+    }
+    .don-info-card:hover{background:rgba(255,255,255,.13);transform:translateY(-2px)}
+    .don-info-card-icon{font-size:1.8rem;margin-bottom:.6rem;display:block}
+    .don-info-card-title{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+      color:rgba(255,255,255,.55);margin-bottom:.3rem}
+    .don-info-card-bank{font-size:.82rem;color:rgba(255,255,255,.65);margin-bottom:.5rem}
+    .don-info-card-addr{
+      font-size:.97rem;font-weight:700;color:#a8e6f0;
+      word-break:break-all;letter-spacing:.01em;
+    }
+    .don-info-card-addr a{color:#8de8a0;text-decoration:none}
+    .don-info-card-addr a:hover{text-decoration:underline}
+    .don-info-card-copy{
+      display:inline-flex;align-items:center;gap:.3rem;
+      margin-top:.7rem;font-size:.78rem;color:rgba(255,255,255,.5);
+      background:rgba(255,255,255,.1);border:none;border-radius:30px;
+      padding:.28rem .8rem;cursor:pointer;transition:background .2s,color .2s;
+    }
+    .don-info-card-copy:hover{background:rgba(255,255,255,.2);color:#fff}
+    /* Givebutter widget wrapper */
+    .givebutter-wrap{
+      max-width:680px;margin:0 auto;
+      background:#fff;border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 12px 48px rgba(0,0,0,.35);
+    }
+
+    /* ── FOOTER ── */
+    footer{background:#0a1520;color:rgba(255,255,255,.65);padding:3.5rem 0 2rem}
+    .ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+    .ft-brand .ft-name{font-size:1.15rem;color:#fff;font-weight:800;margin-bottom:.25rem}
+    .ft-brand .ft-ko{font-size:.9rem;color:var(--teal-light);margin-bottom:.9rem}
+    .ft-brand p{font-size:.84rem;line-height:1.8}
+    .ft-col h4{color:#fff;font-size:.9rem;font-weight:700;margin-bottom:.9rem}
+    .ft-col ul{list-style:none}
+    .ft-col ul li{font-size:.83rem;margin-bottom:.45rem}
+    .ft-col ul li a{color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
+    .ft-col ul li a:hover{color:var(--teal-light)}
+    .ft-social{display:flex;gap:.6rem;margin-top:1rem}
+    .ft-social a{
+      width:34px;height:34px;border-radius:50%;
+      background:rgba(255,255,255,.1);color:#fff;
+      display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.85rem;
+      transition:all .2s;
+    }
+    .ft-social a:hover{background:var(--teal);transform:translateY(-2px)}
+    .ft-bot{
+      border-top:1px solid rgba(255,255,255,.09);padding-top:1.4rem;
+      display:flex;align-items:center;justify-content:space-between;font-size:.8rem;
+    }
+    .ft-bot a{color:rgba(255,255,255,.4);text-decoration:none}
+    .ft-bot a:hover{color:var(--teal-light)}
+
+    /* ── TOAST ── */
+    .toast{
+      position:fixed;bottom:1.8rem;right:1.8rem;
+      background:linear-gradient(135deg,var(--teal),var(--teal-dark));
+      color:#fff;padding:.9rem 1.4rem;border-radius:var(--r);
+      box-shadow:var(--shadow-lg);display:none;align-items:center;gap:.7rem;
+      z-index:3000;font-size:.92rem;font-weight:600;
+      animation:slidein .3s ease;max-width:340px;
+    }
+    .toast.on{display:flex}
+    @keyframes slidein{from{transform:translateX(110%);opacity:0}to{transform:translateX(0);opacity:1}}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px){
+      .about-grid,.news-grid,.bul-layout,.visit-grid,.ft-grid{grid-template-columns:1fr}
+      .fr2{grid-template-columns:1fr}
+    }
+    @media(max-width:680px){
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .nav-links.open{
+        display:flex;flex-direction:column;
+        position:absolute;top:100%;left:0;width:100%;
+        background:#fff;padding:1rem;
+        box-shadow:0 10px 25px rgba(0,0,0,.1);
+      }
+      .hero-btns{flex-direction:column;align-items:center}
+      .pastor-wrap{flex-direction:column}
+      .sermon-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ───── NAVBAR ───── -->
+<nav class="nav" id="nav">
+  <a href="#home" class="nav-logo">
+    <img src="church-logo.png" alt="Korean Church of Westchester"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <div class="nav-logo-fallback">
+      <div class="t1">Korean Church</div>
+      <div class="t2">of Westchester</div>
+    </div>
+  </a>
+  <div class="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#invite" style="color:var(--green);font-weight:700">✦ 전도주일</a></li>
+    <li><a href="#about">교회 소개</a></li>
+    <li><a href="#vision">비전</a></li>
+    <li><a href="#sermons">설교 말씀</a></li>
+    <li><a href="#news">교회 소식</a></li>
+    <li><a href="#bulletin">주보</a></li>
+    <li><a href="#visit">방문하기</a></li>
+    <li><a href="#donate" class="nav-donate">💝 헌금하기</a></li>
+  </ul>
+</nav>
+
+<!-- ───── HERO ───── -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-ko">웨체스터제일교회</div>
+    <h1 class="hero-en">KOREAN CHURCH<br><span class="hero-of">of WESTCHESTER</span></h1>
+    <p class="hero-verse">
+      "너희는 먼저 그의 나라와 그의 의를 구하라<br>
+      그리하면 이 모든 것을 너희에게 더하시리라"<br>
+      — 마태복음 6:33
+    </p>
+    <div class="hero-btns">
+      <a href="#visit" class="btn btn-teal"><i class="fas fa-church"></i> 예배 방문하기</a>
+      <a href="#sermons" class="btn btn-outline-white"><i class="fab fa-youtube"></i> 설교 말씀 듣기</a>
+      <a href="#donate" class="btn btn-green"><i class="fas fa-heart"></i> 헌금하기</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>아래로 스크롤</span><i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- ───── EVANGELISM INVITE ───── -->
+<section id="invite">
+  <div class="container">
+    <div class="invite-inner">
+
+      <!-- Poster Image -->
+      <div class="invite-poster">
+        <span class="invite-poster-badge">✦ 특별 초청 ✦</span>
+        <img src="evangelism-invite.png" alt="전도 주일 예배 초청장">
+      </div>
+
+      <!-- Info -->
+      <div class="invite-info">
+        <div class="invite-eyebrow">Evangelism Sunday · 전도 주일</div>
+        <h2 class="invite-title">전도 주일<br><span class="hl">예배 초청</span></h2>
+        <p class="invite-tagline">
+          사랑하는 가족과 친구들을<br>
+          웨체스터제일교회로 초대합니다
+        </p>
+
+        <!-- Date / Time blocks -->
+        <div class="invite-datetime">
+          <div class="idt-box">
+            <div class="idt-label">Date · 날짜</div>
+            <div class="idt-value">MAY 31</div>
+            <div class="idt-sub">2026 · 주일 (Sunday)</div>
+          </div>
+          <div class="idt-box green">
+            <div class="idt-label">Time · 시간</div>
+            <div class="idt-value">11:00</div>
+            <div class="idt-sub">오전 AM</div>
+          </div>
+        </div>
+
+        <!-- Details -->
+        <div class="invite-details">
+          <div class="idet">
+            <div class="idet-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="idet-text">
+              <strong>장소 · Location</strong>
+              242 N Broadway, Sleepy Hollow, NY 10591
+            </div>
+          </div>
+          <div class="idet">
+            <div class="idet-icon g"><i class="fas fa-car"></i></div>
+            <div class="idet-text">
+              <strong>주차 · Parking</strong>
+              Sleepy Hollow High School 주차장 이용 가능
+            </div>
+          </div>
+          <div class="idet">
+            <div class="idet-icon"><i class="fab fa-youtube"></i></div>
+            <div class="idet-text">
+              <strong>유튜브 · YouTube</strong>
+              <a href="https://www.youtube.com/@kcwny" target="_blank"
+                 style="color:var(--teal);text-decoration:none">www.youtube.com/@kcwny</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="invite-cta">
+          <a href="#visit" class="btn btn-teal">
+            <i class="fas fa-hands-praying"></i> 방문 신청하기
+          </a>
+          <a href="https://www.youtube.com/@kcwny" target="_blank" class="btn btn-outline-white"
+             style="background:transparent;border:2px solid var(--teal);color:var(--teal)">
+            <i class="fab fa-youtube"></i> 온라인 예배
+          </a>
+        </div>
+
+        <p style="margin-top:1.5rem;font-size:.85rem;color:var(--text-light);font-style:italic;line-height:1.7">
+          "함께 예배하며 하나님의 사랑과 은혜를 나누는<br>귀한 시간에 여러분을 초대합니다."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── ABOUT ───── -->
+<section id="about">
+  <div class="container">
+    <div class="sec-hd">
+      <span class="badge">교회 소개</span>
+      <h2 class="sec-title">웨체스터제일교회에 오신 것을 환영합니다</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="card">
+        <h3><i class="fas fa-church"></i> 우리 교회</h3>
+        <p>웨체스터제일교회(Korean Church of Westchester)는 뉴욕 웨체스터 지역에 위치한 한인 교회로, 복음의 말씀 위에 세워진 신앙 공동체입니다.</p>
+        <p>하나님의 말씀을 중심으로 예배하고, 이웃을 섬기며, 다음 세대를 세워가는 사명을 감당하고 있습니다. 처음 오시는 분부터 오랫동안 함께한 성도님들까지 모든 분들을 따뜻하게 환영합니다.</p>
+        <p>주일 예배와 금요 성령 기도회를 통해 하나님의 은혜와 성령의 충만함을 함께 경험하시기 바랍니다.</p>
+        <div class="info-box">
+          <div class="ib-title">📍 예배 안내</div>
+          <div class="ib-body">
+            <strong>주일 예배</strong> &nbsp;오전 11:00 (성인 · Sunday School · Youth)<br>
+            <strong>목장 · 성경공부</strong> &nbsp;오후 1:00<br>
+            <strong>금요 성령 기도회</strong> &nbsp;오후 7:30<br>
+            <strong>주소</strong> &nbsp;242 N Broadway, Sleepy Hollow, NY 10591<br>
+            <strong>전화</strong> &nbsp;914-332-0447 &nbsp;·&nbsp; <strong>이메일</strong> &nbsp;Welcome@kcwny.org
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><i class="fas fa-hands-praying"></i> 담임 목사님 인사말</h3>
+        <div class="pastor-wrap">
+          <div class="pastor-avatar">
+            <img src="pastor-couple.jpg" alt="안병국 담임목사"
+                 onerror="this.innerHTML='<i class=\'fas fa-user-tie\'></i>'">
+          </div>
+          <div class="pastor-meta">
+            <h3>안병국 담임목사</h3>
+            <div class="role">웨체스터제일교회 담임 목사</div>
+            <div class="quote">"사랑하는 성도님들과 방문자 여러분을 환영합니다"</div>
+          </div>
+        </div>
+        <p style="margin-top:1.2rem">사랑하는 성도 여러분, 그리고 우리 교회를 처음 방문하시는 분들께 주님의 이름으로 인사드립니다.</p>
+        <p>웨체스터제일교회는 하나님의 말씀과 성령의 인도하심 아래, 예수 그리스도를 증거하며 서로를 섬기는 공동체입니다. 믿음의 가정을 이루고 계신 분들과 처음 교회를 찾으시는 분들 모두를 따뜻하게 환영합니다.</p>
+        <p>함께 예배하며 하나님의 풍성한 은혜를 누리시기를 바랍니다. 주님 안에서 늘 평안하세요. 🙏</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── VISION ───── -->
+<section id="vision">
+  <div class="container">
+    <div class="vis-hd">
+      <span class="vis-badge">Our Vision · 우리의 비전</span>
+      <h2 class="vis-title">우리는 <span>W.O.R.L.D</span> 비전으로 나아갑니다</h2>
+      <p class="vis-sub">웨체스터제일교회는 하나님의 주권을 믿는 개혁주의(Reformed Church) 교회입니다.<br>
+      복음을 세상 끝까지 전하는 선교적 교회로 세워져 갑니다.</p>
+    </div>
+
+    <!-- W·O·R·L·D Cards -->
+    <div class="world-row">
+      <div class="wcard w">
+        <span class="wcard-letter">W</span>
+        <div class="wcard-word">Worshiping</div>
+        <div class="wcard-ko">예배</div>
+      </div>
+      <div class="wcard o">
+        <span class="wcard-letter">O</span>
+        <div class="wcard-word">Oikos</div>
+        <div class="wcard-ko">소그룹</div>
+      </div>
+      <div class="wcard r">
+        <span class="wcard-letter">R</span>
+        <div class="wcard-word">Reaching Out</div>
+        <div class="wcard-ko">이웃 섬김</div>
+      </div>
+      <div class="wcard l">
+        <span class="wcard-letter">L</span>
+        <div class="wcard-word">Life Giving</div>
+        <div class="wcard-ko">복음 전함</div>
+      </div>
+      <div class="wcard d">
+        <span class="wcard-letter">D</span>
+        <div class="wcard-word">Discipling</div>
+        <div class="wcard-ko">예수의 제자</div>
+      </div>
+    </div>
+
+    <!-- 2026 Vision Banner -->
+    <div class="vis-banner">
+      <div class="vis-banner-year">2026</div>
+      <div class="vis-banner-body">
+        <span class="vis-tag">Life Giving Church · 전도와 선교의 해</span>
+        <h3>복음을 나누는 교회</h3>
+        <p>
+          올해는 선교와 전도의 비전으로 출발합니다. NY · CT · NJ 영혼을 구원하고,
+          땅끝 해외 선교로 향합니다. 하나님의 시선은 죄에 허덕이는 영혼을 향해 있습니다.
+          우리가 딛고 있는 이웃들에게 아낌없이 나누길 원합니다.
+        </p>
+        <p style="margin-top:.5rem;font-size:.82rem;color:rgba(255,255,255,.45)">
+          협력 선교사: 김성준 (남아공) · 박상윤 (튀르키예)
+        </p>
+      </div>
+    </div>
+
+    <!-- Worship Schedule -->
+    <div class="sec-hd" style="margin-bottom:1.5rem">
+      <span class="vis-badge">예배 & 모임 시간</span>
+      <h3 style="font-size:1.5rem;font-weight:700;color:#fff;margin-top:.5rem">Worship Schedule</h3>
+    </div>
+    <div class="wship-grid">
+      <div class="wship-card">
+        <div class="wship-icon sun"><i class="fas fa-church"></i></div>
+        <div class="wship-name">성인 예배</div>
+        <div class="wship-time">11:00 AM</div>
+        <div class="wship-loc">본당 (Main)</div>
+        <div class="wship-day">매주 일요일 Sunday</div>
+      </div>
+      <div class="wship-card">
+        <div class="wship-icon ss"><i class="fas fa-child"></i></div>
+        <div class="wship-name">Sunday School</div>
+        <div class="wship-time">11:00 AM</div>
+        <div class="wship-loc">2층 · 0~5th Grade</div>
+        <div class="wship-day">매주 일요일 Sunday</div>
+      </div>
+      <div class="wship-card">
+        <div class="wship-icon youth"><i class="fas fa-users"></i></div>
+        <div class="wship-name">Youth Group</div>
+        <div class="wship-time">11:00 AM</div>
+        <div class="wship-loc">3층 · 6th~12th Grade</div>
+        <div class="wship-day">매주 일요일 Sunday</div>
+      </div>
+      <div class="wship-card">
+        <div class="wship-icon cell"><i class="fas fa-leaf"></i></div>
+        <div class="wship-name">목장 · 성경공부</div>
+        <div class="wship-time">1:00 PM</div>
+        <div class="wship-loc">1층</div>
+        <div class="wship-day">매주 일요일 Sunday</div>
+      </div>
+      <div class="wship-card">
+        <div class="wship-icon fri"><i class="fas fa-fire"></i></div>
+        <div class="wship-name">금요 성령 기도회</div>
+        <div class="wship-time">7:30 PM</div>
+        <div class="wship-loc">3층 · 시편 설교</div>
+        <div class="wship-day">매주 금요일 Friday</div>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:2rem;font-size:.8rem;color:rgba(255,255,255,.35);position:relative;z-index:1">
+      <i class="fas fa-map-marker-alt" style="margin-right:.4rem"></i>
+      242 N Broadway, Sleepy Hollow, NY 10591 &nbsp;·&nbsp;
+      <i class="fas fa-car" style="margin-right:.4rem"></i>
+      주차: Sleepy Hollow High School (210 Broadway)
+    </p>
+  </div>
+</section>
+
+<!-- ───── SERMONS ───── -->
+<section id="sermons">
+  <div class="container">
+    <div class="sec-hd">
+      <span class="badge">설교 말씀</span>
+      <h2 class="sec-title">말씀을 들으세요</h2>
+      <p class="sec-sub">주일 설교와 금요 성령 기도회 말씀을 영상으로 시청하세요</p>
+      <div class="divider"></div>
+    </div>
+    <div class="tab-bar">
+      <button class="tab on" onclick="switchTab('sun',this)">
+        <i class="fas fa-sun"></i> 주일 설교
+      </button>
+      <button class="tab" onclick="switchTab('fri',this)">
+        <i class="fas fa-fire"></i> 금요 성령 기도회
+      </button>
+    </div>
+    <div class="sermon-grid" id="sermonGrid"></div>
+  </div>
+</section>
+
+<!-- ───── NEWS & EVENTS ───── -->
+<section id="news">
+  <div class="container">
+    <div class="sec-hd">
+      <span class="badge">교회 소식</span>
+      <h2 class="sec-title">소식 &amp; Upcoming 일정</h2>
+      <p class="sec-sub">교회 공동체의 최신 소식과 앞으로 예정된 행사를 확인하세요</p>
+      <p style="font-size:.8rem;color:var(--text-light);margin-top:.5rem">
+        <i class="fas fa-file-alt" style="margin-right:.3rem;color:var(--teal)"></i>
+        2026년 5월 3일 주보 기준
+      </p>
+      <div class="divider"></div>
+    </div>
+    <div class="news-grid">
+      <div class="panel">
+        <h3><i class="fas fa-newspaper" style="color:var(--teal)"></i> 교회 소식</h3>
+        <div class="panel-scroll" id="newsArea"></div>
+      </div>
+      <div class="panel">
+        <h3><i class="fas fa-calendar-alt" style="color:var(--green)"></i> Upcoming 일정</h3>
+        <div class="panel-scroll" id="eventsArea"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── BULLETIN ───── -->
+<section id="bulletin">
+  <div class="container">
+    <div class="sec-hd">
+      <span class="badge">주보</span>
+      <h2 class="sec-title">교회 주보</h2>
+      <p class="sec-sub">이번 주 주보를 미리 보거나 다운로드 하세요</p>
+      <div class="divider"></div>
+    </div>
+    <div class="bul-layout">
+      <!-- Latest Bulletin -->
+      <div class="bul-preview">
+        <div class="bul-phead">
+          <h3><i class="fas fa-file-alt"></i> &nbsp;이번 주 주보</h3>
+          <span class="bd" id="latestDate">2026년 5월 3일 (주일)</span>
+        </div>
+        <div class="bul-pbody">
+          <div class="bul-frame" id="bulletinFrame">
+            <iframe src="bulletin-latest.pdf#view=FitH" title="이번 주 주보"></iframe>
+          </div>
+          <div class="bul-actions">
+            <button class="bsm bsm-fill" onclick="previewBulletin()">
+              <i class="fas fa-eye"></i> 크게 보기
+            </button>
+            <a href="bulletin-latest.pdf" download class="bsm bsm-out">
+              <i class="fas fa-download"></i> 다운로드
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Past Bulletins -->
+      <div class="bul-list">
+        <div class="bul-lhead">
+          <h3><i class="fas fa-history"></i> &nbsp;이전 주보 목록</h3>
+        </div>
+        <div id="pastBulletins"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── VISIT ───── -->
+<section id="visit">
+  <div class="container">
+    <div class="sec-hd">
+      <span class="badge">방문하기</span>
+      <h2 class="sec-title">저희 교회를 방문해 주세요</h2>
+      <p class="sec-sub">처음 방문하시는 분들을 따뜻하게 환영합니다. 아래 양식을 통해 미리 알려주시면 더욱 잘 준비하겠습니다.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-info">
+        <h3><i class="fas fa-map-marker-alt"></i> 교회 안내</h3>
+        <div class="vd">
+          <div class="vd-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="vd-text">
+            <h4>교회 주소</h4>
+            <p>242 N Broadway<br>Sleepy Hollow, NY 10591</p>
+          </div>
+        </div>
+        <div class="vd">
+          <div class="vd-icon"><i class="fas fa-clock"></i></div>
+          <div class="vd-text">
+            <h4>예배 시간</h4>
+            <p>주일 예배: 오전 11:00<br>목장·성경공부: 오후 1:00<br>금요 성령 기도회: 오후 7:30</p>
+          </div>
+        </div>
+        <div class="vd">
+          <div class="vd-icon"><i class="fas fa-globe"></i></div>
+          <div class="vd-text">
+            <h4>홈페이지 / 연락처</h4>
+            <p>
+              <a href="http://www.kcwny.org" target="_blank">www.kcwny.org</a><br>
+              📞 914-332-0447<br>
+              ✉ Welcome@kcwny.org
+            </p>
+          </div>
+        </div>
+        <div class="vd">
+          <div class="vd-icon"><i class="fab fa-youtube"></i></div>
+          <div class="vd-text">
+            <h4>온라인 예배</h4>
+            <p>YouTube를 통해 온라인으로도 예배에 참여하실 수 있습니다</p>
+          </div>
+        </div>
+        <div class="vd">
+          <div class="vd-icon g"><i class="fas fa-parking"></i></div>
+          <div class="vd-text">
+            <h4>주차 안내</h4>
+            <p>Sleepy Hollow High School<br>210 Broadway, Sleepy Hollow</p>
+          </div>
+        </div>
+        <div class="vd">
+          <div class="vd-icon g"><i class="fas fa-child"></i></div>
+          <div class="vd-text">
+            <h4>어린이 & 청소년</h4>
+            <p>주일학교 및 청소년부 운영 중<br>자녀와 함께 오세요</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cform">
+        <h3><i class="fas fa-paper-plane" style="color:var(--teal);margin-right:.5rem"></i> 방문 신청서</h3>
+        <form id="visitForm">
+          <div class="fr2">
+            <div class="fg">
+              <label>이름 <span class="req">*</span></label>
+              <input type="text" name="name" class="fc" placeholder="홍길동" required>
+            </div>
+            <div class="fg">
+              <label>전화번호 <span class="req">*</span></label>
+              <input type="tel" name="phone" class="fc" placeholder="(914) 000-0000" required>
+            </div>
+          </div>
+          <div class="fg">
+            <label>이메일 <span class="req">*</span></label>
+            <input type="email" name="email" class="fc" placeholder="example@email.com" required>
+          </div>
+          <div class="fg">
+            <label>방문 예정일 <span class="req">*</span></label>
+            <input type="date" name="visit_date" class="fc" required>
+          </div>
+          <div class="fg">
+            <label>메시지</label>
+            <textarea name="message" class="fc" placeholder="궁금하신 점이나 전하고 싶은 말씀을 적어주세요..."></textarea>
+          </div>
+          <button type="submit" class="fsub">
+            <i class="fas fa-paper-plane"></i> 방문 신청하기
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── DONATE ───── -->
+<section id="donate">
+  <div class="container don-con">
+    <span class="don-icon">💝</span>
+    <h2 class="don-title">헌금 (Donate)</h2>
+    <p class="don-sub">
+      하나님 나라의 사역을 위한 여러분의 귀한 헌금에 감사드립니다.<br>
+      아래에서 바로 헌금하실 수 있습니다.
+    </p>
+    <p class="don-verse">
+      "각각 그 마음에 정한 대로 할 것이요 인색함으로나 억지로 하지 말지니<br>
+      하나님은 즐겨 내는 자를 사랑하시느니라" — 고린도후서 9:7
+    </p>
+    <!-- 헌금 CTA 버튼 -->
+    <div class="don-btn-wrap">
+      <div class="don-types">
+        <span class="don-type-pill">🙏 십일조</span>
+        <span class="don-type-pill">💛 일반헌금</span>
+        <span class="don-type-pill">🌍 선교헌금</span>
+        <span class="don-type-pill">🏛 건축헌금</span>
+      </div>
+      <p class="don-btn-note">🔒 안전한 온라인 헌금 &nbsp;·&nbsp; Secure Online Giving</p>
+    </div>
+    <!-- 헌금 방법 안내 카드 -->
+    <div class="don-info-grid">
+      <div class="don-info-card">
+        <span class="don-info-card-icon">📱</span>
+        <div class="don-info-card-title">Zelle · 십일조 / 일반헌금</div>
+        <div class="don-info-card-bank">Chase Bank</div>
+        <div class="don-info-card-addr" id="zelle-addr">kcwfinance2@hotmail.com</div>
+        <button class="don-info-card-copy" onclick="navigator.clipboard.writeText('kcwfinance2@hotmail.com');this.textContent='✓ 복사됨';setTimeout(()=>this.innerHTML='<i class=\'fas fa-copy\'></i> 복사',1800)">
+          <i class="fas fa-copy"></i> 복사
+        </button>
+      </div>
+      <div class="don-info-card">
+        <span class="don-info-card-icon">🌍</span>
+        <div class="don-info-card-title">선교 헌금 · Missions</div>
+        <div class="don-info-card-bank">Citizens Bank · 자동이체 가능</div>
+        <div class="don-info-card-addr">
+          <a href="https://givebutter.com/kcwnymission" target="_blank" rel="noopener">
+            givebutter.com/kcwnymission
+          </a>
+        </div>
+        <button class="don-info-card-copy" onclick="window.open('https://givebutter.com/kcwnymission','_blank')">
+          <i class="fas fa-external-link-alt"></i> 바로가기
+        </button>
+      </div>
+    </div>
+    <!-- Givebutter 헌금 위젯 (kcwny.org 동일 위젯) -->
+    <div class="givebutter-wrap" id="giver-widget">
+      <givebutter-widget id="L3kZeL"></givebutter-widget>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="container">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="ft-name">Korean Church of Westchester</div>
+        <div class="ft-ko">웨체스터제일교회</div>
+        <p>하나님의 말씀과 성령의 역사 안에서<br>함께 믿음으로 세워지는 공동체</p>
+        <div class="ft-social">
+          <a href="http://www.kcwny.org" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
+          <a href="https://www.youtube.com/@kcwny" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>예배 정보</h4>
+        <ul>
+          <li>주일 예배 — 오전 11:00</li>
+          <li>금요 성령 기도회 — 오후 8:00</li>
+          <li>온라인 YouTube 예배</li>
+          <li>주차 가능</li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>바로가기</h4>
+        <ul>
+          <li><a href="#about">교회 소개</a></li>
+          <li><a href="#sermons">설교 말씀</a></li>
+          <li><a href="#news">교회 소식</a></li>
+          <li><a href="#bulletin">교회 주보</a></li>
+          <li><a href="#visit">방문 신청</a></li>
+          <li><a href="#donate">헌금하기</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <span>© 2026 Korean Church of Westchester · 웨체스터제일교회</span>
+      <a href="http://www.kcwny.org" target="_blank">www.kcwny.org</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ───── VIDEO MODAL ───── -->
+<div class="modal" id="vidModal" onclick="closeModalBg(event)">
+  <button class="modal-x" onclick="closeVid()"><i class="fas fa-times"></i></button>
+  <div class="vid-wrap">
+    <div class="vid-ratio">
+      <iframe id="vidFrame" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ───── TOAST ───── -->
+<div class="toast" id="toast">
+  <i class="fas fa-check-circle"></i>
+  <span id="toastMsg">완료되었습니다!</span>
+</div>
+
+<script>
+// ══════════════════════════════════════════════
+//  ★ 교회 데이터 - 실제 내용으로 업데이트 하세요 ★
+// ══════════════════════════════════════════════
+
+// ▶ 주일 설교 목록 (www.youtube.com/@kcwny)
+const SUNDAY = [
+  { id:'x3tazGuRHCc', title:'가정을 세우는 5단계 리모델링', date:'2026-05-04', preacher:'안병국 담임목사', ref:'가정의달 특별설교' },
+  { id:'uyRrNpvHjM8', title:'광야의 약탈자 상대하기', date:'2026-04-27', preacher:'안병국 담임목사', ref:'출애굽기 17:8-16' },
+  { id:'4FJ1dibjyvM', title:'하나님은 계획이 있으시다', date:'2026-04-20', preacher:'안병국 담임목사', ref:'출애굽기 17:1-7' },
+  { id:'uNv5__PpLyA', title:'만나는 충분히 내린다', date:'2026-04-13', preacher:'안병국 담임목사', ref:'출애굽기 16:1-12' },
+  { id:'kCaxEHIMA6g', title:'세례 받고, 떡을 떼라 (부활주일)', date:'2026-04-05', preacher:'안병국 담임목사', ref:'사도행전 2:41-42' },
+  { id:'lGbmisPzT7s', title:'믿음이란, 탬버린을 준비하는 것', date:'2026-03-29', preacher:'안병국 담임목사', ref:'출애굽기 15:19-21' },
+];
+
+// ▶ 금요 성령 기도회 목록 (www.youtube.com/@kcwny)
+const FRIDAY = [
+  { id:'y27JpzZw0D4', title:'네 종류의 문제, 하나님의 답', date:'2026-05-02', preacher:'안병국 담임목사', ref:'시편 107:1-32' },
+  { id:'6axJq9H-6KA', title:'기도로 하나님의 마음을 바꾼다', date:'2026-04-25', preacher:'안병국 담임목사', ref:'시편 106:23 · 출 32:11-14' },
+  { id:'qk9MsK7w8yw', title:'위기를 넘어선 교회', date:'2026-04-18', preacher:'안병국 담임목사', ref:'사도행전 6:1-7' },
+  { id:'A0Xx3o6fyjg', title:'기도하는 집으로 불리는 교회', date:'2026-04-11', preacher:'안병국 담임목사', ref:'사도행전 4:23-31' },
+  { id:'FwpK2ye_hUE', title:'세상이 관심을 보이는 유니크한 교회', date:'2026-04-04', preacher:'안병국 담임목사', ref:'사도행전 2:43-47' },
+  { id:'45BIheHMvpo', title:'성령으로 충만한 교회', date:'2026-03-27', preacher:'안병국 담임목사', ref:'사도행전 2:1-5, 16-21' },
+];
+
+// ▶ 교회 소식
+const NEWS = [
+  { cat:'예배', cls:'c-w',
+    title:'어머니 주일 (Mother\'s Day) — 5월 10일',
+    body:'우리 교회 모든 어머니들을 사랑하고 존경합니다. 아버지들이 특별 점심 메뉴를 준비합니다. 함께 축복하는 시간이 되길 바랍니다.' },
+  { cat:'전도', cls:'c-f',
+    title:'전도주일 — 5월 31일 주일 11:00',
+    body:'\'1가정이 또 다른 1가정 전도하기\' 전도 대상자(태신자) 리스트를 작성하고 그들을 위해 기도하며 복음을 전해 주세요. 전도용 Pamphlet(Korean/English)을 가져가시기 바랍니다.' },
+  { cat:'청소년', cls:'c-p',
+    title:'Youth Korean Culture Day — 5월 31일 오후 2:00',
+    body:'한국 전통 놀이 소개 행사입니다. 장소: 2층/3층. 공기, 딱지, 재기차기, 윷놀이, 한복 입고 사진찍기 등. 어린이와 한국 전통 놀이에 관심 있으신 분 누구나 환영합니다.' },
+  { cat:'기도', cls:'c-e',
+    title:'금요 성령 기도회 — 매주 금요일 PM 7:30',
+    body:'\"시편 설교\" 시리즈로 진행됩니다. 안병국 담임목사 설교. 장소: 3층. 성도님들의 많은 참여를 부탁드립니다.' },
+  { cat:'교육', cls:'c-w',
+    title:'성경통독 & 목장 모임',
+    body:'성경통독 결과를 목자에게 알려주시기 바랍니다. 목장 모임은 매주 주일 오후 1시부터입니다. 금주 친교실 섬김: 4목장(김선임 목자).' },
+  { cat:'생일', cls:'c-f',
+    title:'5월 생일을 축하합니다 🎂',
+    body:'홍준(5/7) · 김기정(5/12) · 이성진(5/18) · 김영(5/23) · 마일즈(5/23). 주님 안에서 건강하고 복된 한 해가 되길 축원합니다!' },
+];
+
+// ▶ Upcoming 행사 일정 (2026년 5월 주보 기준)
+const EVENTS = [
+  { day:'10', mon:'May', title:'어머니 주일 (Mother\'s Day)', sub:'오전 11:00 | 본당 · 아버지들 특별 점심 준비' },
+  { day:'31', mon:'May', title:'전도주일 예배', sub:'오전 11:00 | 본당 · 1가정이 1가정 전도하기' },
+  { day:'31', mon:'May', title:'Youth Korean Culture Day', sub:'오후 2:00 | 2·3층 · 한국 전통 놀이' },
+  { day:'01', mon:'Jun', title:'금요 성령 기도회 (매주)', sub:'오후 7:30 | 3층 · 시편 설교' },
+];
+
+// ▶ 이전 주보 목록
+const PAST_BULS = [
+  { title:'2026년 4월 26일 주보', date:'2026-04-26', url:'bulletins/2026-04-26.pdf' },
+  { title:'2026년 4월 19일 주보', date:'2026-04-19', url:'bulletins/2026-04-19.pdf' },
+  { title:'2026년 4월 12일 주보', date:'2026-04-12', url:'bulletins/2026-04-12.pdf' },
+];
+
+// ══════════════════════════════════════════════
+//  렌더 함수들
+// ══════════════════════════════════════════════
+
+let curTab = 'sun';
+
+function switchTab(tab, btn) {
+  curTab = tab;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+  btn.classList.add('on');
+  renderSermons(tab === 'sun' ? SUNDAY : FRIDAY, tab);
+}
+
+function renderSermons(list, type) {
+  const g = document.getElementById('sermonGrid');
+  const isFri = type === 'fri';
+  g.innerHTML = list.map(s => `
+    <div class="s-card" onclick="openVid('${s.id}')">
+      <div class="s-thumb">
+        <img
+          src="https://img.youtube.com/vi/${s.id}/maxresdefault.jpg"
+          onerror="this.src='https://img.youtube.com/vi/${s.id}/hqdefault.jpg';this.onerror=null"
+          alt="${s.title}" loading="lazy">
+        <div class="s-badge${isFri?' fri':''}">${isFri?'금요 기도회':'주일 설교'}</div>
+        <div class="s-play"><i class="fas fa-play"></i></div>
+      </div>
+      <div class="s-info">
+        <div class="s-date"><i class="fas fa-calendar-alt" style="margin-right:.3rem"></i>${s.date} &nbsp;|&nbsp; ${s.ref}</div>
+        <h4>${s.title}</h4>
+        <div class="s-preacher"><i class="fas fa-user" style="margin-right:.3rem"></i>${s.preacher}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderNews() {
+  document.getElementById('newsArea').innerHTML = NEWS.map(n => `
+    <div class="ni">
+      <span class="ni-cat ${n.cls}">${n.cat}</span>
+      <h4>${n.title}</h4>
+      <p>${n.body}</p>
+    </div>
+  `).join('');
+
+  document.getElementById('eventsArea').innerHTML = EVENTS.map(e => `
+    <div class="ev">
+      <div class="ev-date"><div class="d">${e.day}</div><div class="m">${e.mon}</div></div>
+      <div class="ev-info"><h4>${e.title}</h4><p>${e.sub}</p></div>
+    </div>
+  `).join('');
+}
+
+function renderBulletins() {
+  document.getElementById('pastBulletins').innerHTML = PAST_BULS.map(b => `
+    <div class="bli">
+      <div>
+        <div class="bli-title">${b.title}</div>
+        <div class="bli-date">${b.date}</div>
+      </div>
+      <a href="${b.url}" download class="bli-dl" title="다운로드">
+        <i class="fas fa-download"></i>
+      </a>
+    </div>
+  `).join('');
+}
+
+// ── Video modal ──
+function openVid(id) {
+  document.getElementById('vidFrame').src =
+    `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+  document.getElementById('vidModal').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function closeVid() {
+  document.getElementById('vidModal').classList.remove('on');
+  document.getElementById('vidFrame').src = '';
+  document.body.style.overflow = '';
+}
+function closeModalBg(e) {
+  if (e.target === document.getElementById('vidModal')) closeVid();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVid(); });
+
+// ── Bulletin ──
+function previewBulletin() {
+  // If you have a PDF, open it in a new tab or replace the iframe src
+  const src = 'bulletin-latest.pdf';
+  window.open(src, '_blank') ||
+    toast('주보 PDF 파일(bulletin-latest.pdf)을 같은 폴더에 넣으면 열립니다 📄');
+}
+
+// ── Contact form ──
+document.getElementById('visitForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  // TODO: connect to Formspree, EmailJS, or your backend
+  // Example Formspree: set action="https://formspree.io/f/YOUR_FORM_ID" and remove e.preventDefault()
+  toast('방문 신청이 완료되었습니다! 곧 연락드리겠습니다 🙏');
+  this.reset();
+});
+
+// ── Toast ──
+function toast(msg, dur=4200) {
+  const el = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  el.classList.add('on');
+  setTimeout(() => el.classList.remove('on'), dur);
+}
+
+// ── Mobile nav ──
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+});
+
+// ── Navbar scroll shadow ──
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').style.boxShadow =
+    window.scrollY > 50 ? '0 4px 20px rgba(0,0,0,.13)' : '0 2px 12px rgba(0,0,0,.06)';
+});
+
+// ── Init ──
+renderSermons(SUNDAY, 'sun');
+renderNews();
+renderBulletins();
+</script>
+<!-- Givebutter 헌금 위젯 스크립트 -->
+<script src="https://widgets.givebutter.com/latest.umd.cjs?acct=mVh97vNSrcvtJ9RH&p=other" async></script>
+</body>
+</html>
