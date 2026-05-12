@@ -181,10 +181,18 @@
     .s-card:hover .s-play{background:#fff;transform:translate(-50%,-50%) scale(1.1)}
     .s-badge{position:absolute;top:.7rem;left:.7rem;background:var(--teal);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.04em;padding:.18rem .55rem;border-radius:4px}
     .s-badge.fri{background:var(--green)}
+    .s-badge.praise{background:#7B5EA7}
+    .s-badge.choir{background:#C9A227}
     .s-info{padding:1.2rem}
     .s-date{font-size:.76rem;color:var(--text-light);margin-bottom:.3rem}
     .s-info h4{font-size:.97rem;font-weight:600;color:var(--text);margin-bottom:.28rem;line-height:1.45}
     .s-preacher{font-size:.83rem;color:var(--teal);font-weight:500}
+
+    /* ── PRAISE & CHOIR ── */
+    #praise{background:var(--bg)}
+    .praise-tab-bar{display:flex;gap:.4rem;justify-content:center;margin-bottom:2.5rem;background:#fff;padding:.45rem;border-radius:50px;width:fit-content;margin-left:auto;margin-right:auto;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+    .praise-tab{padding:.55rem 1.6rem;border-radius:40px;border:none;background:transparent;color:var(--text-mid);font-size:.92rem;font-weight:500;cursor:pointer;transition:all .3s;font-family:inherit}
+    .praise-tab.on{background:var(--bg);color:#7B5EA7;box-shadow:0 2px 10px rgba(0,0,0,.09);font-weight:700}
 
     /* ── VIDEO MODAL ── */
     .modal{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;display:none;align-items:center;justify-content:center;padding:1rem}
@@ -309,6 +317,55 @@
     .wship-loc{font-size:.76rem;color:rgba(255,255,255,.5)}
     .wship-day{font-size:.78rem;color:rgba(255,255,255,.45);margin-top:.15rem}
 
+    /* ── GALLERY ── */
+    #gallery{background:var(--bg)}
+    .gal-filter{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
+    .gal-btn{
+      padding:.42rem 1.1rem;border-radius:30px;border:1.5px solid var(--border);
+      background:#fff;color:var(--text-mid);font-size:.84rem;font-weight:600;
+      cursor:pointer;transition:all .22s;font-family:inherit;
+    }
+    .gal-btn:hover{border-color:var(--teal);color:var(--teal)}
+    .gal-btn.on{background:var(--teal);color:#fff;border-color:var(--teal);box-shadow:0 3px 12px rgba(46,156,181,.3)}
+    /* Masonry grid */
+    .gal-grid{
+      columns:3 280px;column-gap:1.1rem;
+    }
+    .gal-item{
+      break-inside:avoid;margin-bottom:1.1rem;
+      border-radius:16px;overflow:hidden;
+      position:relative;cursor:pointer;
+      box-shadow:0 3px 14px rgba(0,0,0,.09);
+      transition:transform .28s,box-shadow .28s;
+    }
+    .gal-item:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(0,0,0,.18)}
+    .gal-item img{width:100%;display:block;object-fit:cover;transition:transform .4s}
+    .gal-item:hover img{transform:scale(1.04)}
+    .gal-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(to top,rgba(10,25,40,.78) 0%,transparent 55%);
+      opacity:0;transition:opacity .28s;
+      display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem;
+    }
+    .gal-item:hover .gal-overlay{opacity:1}
+    .gal-overlay-tag{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-light);margin-bottom:.25rem}
+    .gal-overlay-cap{font-size:.9rem;font-weight:600;color:#fff;line-height:1.4}
+    .gal-overlay-date{font-size:.75rem;color:rgba(255,255,255,.6);margin-top:.2rem}
+    /* Lightbox */
+    .gal-lb{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:3000;display:none;align-items:center;justify-content:center;padding:1rem}
+    .gal-lb.on{display:flex}
+    .gal-lb-inner{position:relative;max-width:1000px;width:100%}
+    .gal-lb img{width:100%;max-height:82vh;object-fit:contain;border-radius:12px;display:block}
+    .gal-lb-cap{text-align:center;margin-top:.9rem;color:rgba(255,255,255,.8);font-size:.95rem}
+    .gal-lb-tag{font-size:.72rem;color:var(--teal-light);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.25rem}
+    .gal-lb-x{position:absolute;top:-14px;right:-14px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+    .gal-lb-x:hover{background:rgba(255,255,255,.28)}
+    .gal-lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.13);border:2px solid rgba(255,255,255,.25);color:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+    .gal-lb-nav:hover{background:rgba(255,255,255,.25)}
+    .gal-lb-prev{left:-60px}
+    .gal-lb-next{right:-60px}
+    @media(max-width:700px){.gal-lb-prev{left:-2px}.gal-lb-next{right:-2px}}
+    .gal-empty{text-align:center;padding:3rem;color:var(--text-light);font-size:.95rem}
     /* ── DONATE ── */
     #donate{background:linear-gradient(150deg,#0d1e2e 0%,#1a3a50 50%,#0d2535 100%);color:#fff;text-align:center;padding:5rem 0 4rem;position:relative;overflow:hidden}
     #donate::before{content:'';position:absolute;top:-40%;left:-15%;width:55%;height:180%;background:radial-gradient(circle,rgba(141,198,63,.07) 0%,transparent 70%)}
@@ -393,8 +450,10 @@
     <li><a href="#about">교회 소개</a></li>
     <li><a href="#vision">비전</a></li>
     <li><a href="#sermons">설교 말씀</a></li>
+    <li><a href="#praise">특별 찬양</a></li>
     <li><a href="#news">교회 소식</a></li>
     <li><a href="#bulletin">주보</a></li>
+    <li><a href="#gallery">갤러리</a></li>
     <li><a href="#visit">방문하기</a></li>
     <li><a href="#donate" class="nav-donate">💝 헌금하기</a></li>
   </ul>
@@ -626,6 +685,23 @@
   </div>
 </section>
 
+<!-- ───── PRAISE & CHOIR ───── -->
+<section id="praise">
+  <div class="container">
+    <div class="sec-hd">
+      <span class="badge">찬양</span>
+      <h2 class="sec-title">특별 찬양 &amp; KCW 중창단</h2>
+      <p class="sec-sub">우리 교회 특별 찬양과 중창단의 아름다운 찬양을 감상하세요</p>
+      <div class="divider"></div>
+    </div>
+    <div class="praise-tab-bar">
+      <button class="praise-tab on" onclick="switchPraise('praise',this)"><i class="fas fa-music"></i> 특별 찬양</button>
+      <button class="praise-tab" onclick="switchPraise('choir',this)"><i class="fas fa-users"></i> KCW 중창단</button>
+    </div>
+    <div class="sermon-grid" id="praiseGrid"></div>
+  </div>
+</section>
+
 <!-- ───── NEWS & EVENTS ───── -->
 <section id="news">
   <div class="container">
@@ -690,6 +766,42 @@
     </div>
   </div>
 </section>
+
+<!-- ───── GALLERY ───── -->
+<section id="gallery">
+  <div class="container">
+    <div class="sec-hd">
+      <span class="badge">교회 갤러리</span>
+      <h2 class="sec-title">우리 교회 이야기</h2>
+      <p class="sec-sub">함께 나누는 믿음의 여정 · 소중한 순간들을 담았습니다</p>
+      <div class="divider"></div>
+    </div>
+    <div class="gal-filter" id="galFilter">
+      <button class="gal-btn on" onclick="filterGal('all',this)">전체</button>
+      <button class="gal-btn" onclick="filterGal('예배',this)">🙏 예배</button>
+      <button class="gal-btn" onclick="filterGal('친교',this)">🤝 친교</button>
+      <button class="gal-btn" onclick="filterGal('훈련',this)">📖 훈련</button>
+      <button class="gal-btn" onclick="filterGal('선교',this)">🌍 선교</button>
+      <button class="gal-btn" onclick="filterGal('청소년',this)">🎉 청소년</button>
+    </div>
+    <div class="gal-grid" id="galGrid"></div>
+  </div>
+</section>
+
+<!-- 라이트박스 -->
+<div class="gal-lb" id="galLb" onclick="closeLbBg(event)">
+  <div class="gal-lb-inner">
+    <button class="gal-lb-x" onclick="closeLb()"><i class="fas fa-times"></i></button>
+    <button class="gal-lb-nav gal-lb-prev" onclick="lbNav(-1)"><i class="fas fa-chevron-left"></i></button>
+    <button class="gal-lb-nav gal-lb-next" onclick="lbNav(1)"><i class="fas fa-chevron-right"></i></button>
+    <img id="galLbImg" src="" alt="">
+    <div class="gal-lb-cap">
+      <div class="gal-lb-tag" id="galLbTag"></div>
+      <div id="galLbCap"></div>
+      <div id="galLbDate" style="font-size:.78rem;color:rgba(255,255,255,.5);margin-top:.2rem"></div>
+    </div>
+  </div>
+</div>
 
 <!-- ───── VISIT ───── -->
 <section id="visit">
@@ -843,8 +955,10 @@
         <ul>
           <li><a href="#about">교회 소개</a></li>
           <li><a href="#sermons">설교 말씀</a></li>
+          <li><a href="#praise">특별 찬양</a></li>
           <li><a href="#news">교회 소식</a></li>
           <li><a href="#bulletin">교회 주보</a></li>
+          <li><a href="#gallery">교회 갤러리</a></li>
           <li><a href="#visit">방문 신청</a></li>
           <li><a href="#donate">헌금하기</a></li>
         </ul>
@@ -873,6 +987,7 @@
   <span id="toastMsg">완료되었습니다!</span>
 </div>
 
+<script src="photos-data.js"></script>
 <script>
 // ══════════════════════════════════════════════
 //  교회 데이터 (2026년 5월 10일 주보 기준)
@@ -895,6 +1010,22 @@ const FRIDAY = [
   { id:'A0Xx3o6fyjg', title:'기도하는 집으로 불리는 교회', date:'2026-04-11', preacher:'안병국 담임목사', ref:'사도행전 4:23-31' },
   { id:'FwpK2ye_hUE', title:'세상이 관심을 보이는 유니크한 교회', date:'2026-04-04', preacher:'안병국 담임목사', ref:'사도행전 2:43-47' },
   { id:'45BIheHMvpo', title:'성령으로 충만한 교회', date:'2026-03-27', preacher:'안병국 담임목사', ref:'사도행전 2:1-5, 16-21' },
+];
+
+const PRAISE = [
+  { id:'Psf18BgqHXI', title:'내 영혼이 은총 입어 + 광야를 지나며', date:'2026-05-05', artist:'Oboist 임현애 · Pianist 성세리나' },
+  { id:'70kGnIm67Zo', title:'Bless This House', date:'새해 특송', artist:'Tenor 김동필 · Piano 김명숙' },
+  { id:'-_7ZkiJ3HlI', title:'주의 크신 복 · 은혜 아니면', date:'2024년 감사절', artist:'특별 찬양' },
+  { id:'FKomgFzrsIo', title:'모든 백성들 기뻐하라', date:'크리스마스 찬양', artist:'특별 찬양' },
+];
+
+const CHOIR = [
+  { id:'juloy2kukiI', title:'험한 십자가 능력있네', date:'2026-04-05', artist:'KCW 중창단' },
+  { id:'S9Duslqa3Xk', title:'나의 등 뒤에서 나를 도우시는 주', date:'2026년', artist:'KCW 중창단' },
+  { id:'Nl6M0sHW1Nk', title:'주님 나라 임하시네 & 한 믿음 가지고', date:'2026년', artist:'KCW 중창단' },
+  { id:'PJnqCyEskQ8', title:'내 너를 붙들리라', date:'2026년', artist:'KCW 중창단' },
+  { id:'S6ku7pmhXXs', title:'내 슬픔 변해', date:'2026년', artist:'KCW 중창단' },
+  { id:'BOFfPxQ21KU', title:'살아계신 주', date:'2026년 부활절', artist:'KCW 중창단 & Youth' },
 ];
 
 const NEWS = [
@@ -1033,6 +1164,39 @@ function renderSermons(list, type) {
   `).join('');
 }
 
+let curPraiseTab = 'praise';
+
+function switchPraise(tab, btn) {
+  curPraiseTab = tab;
+  document.querySelectorAll('.praise-tab').forEach(t => t.classList.remove('on'));
+  btn.classList.add('on');
+  renderPraise(tab === 'praise' ? PRAISE : CHOIR);
+}
+
+function renderPraise(list) {
+  const g = document.getElementById('praiseGrid');
+  const isChoir = curPraiseTab === 'choir';
+  const badgeCls = isChoir ? 'choir' : 'praise';
+  const badgeLabel = isChoir ? 'KCW 중창단' : '특별 찬양';
+  const artistColor = isChoir ? '#C9A227' : '#7B5EA7';
+  g.innerHTML = list.map(s => `
+    <div class="s-card" onclick="openVid('${s.id}')">
+      <div class="s-thumb">
+        <img src="https://img.youtube.com/vi/${s.id}/maxresdefault.jpg"
+             onerror="this.src='https://img.youtube.com/vi/${s.id}/hqdefault.jpg';this.onerror=null"
+             alt="${s.title}" loading="lazy">
+        <div class="s-badge ${badgeCls}">${badgeLabel}</div>
+        <div class="s-play"><i class="fas fa-play"></i></div>
+      </div>
+      <div class="s-info">
+        <div class="s-date"><i class="fas fa-calendar-alt" style="margin-right:.3rem"></i>${s.date}</div>
+        <h4>${s.title}</h4>
+        <div class="s-preacher" style="color:${artistColor}"><i class="fas fa-microphone" style="margin-right:.3rem"></i>${s.artist}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
 function renderNews() {
   document.getElementById('newsArea').innerHTML = NEWS.map(n => `
     <div class="ni">
@@ -1104,9 +1268,84 @@ window.addEventListener('scroll', () => {
     window.scrollY > 50 ? '0 4px 20px rgba(0,0,0,.13)' : '0 2px 12px rgba(0,0,0,.06)';
 });
 
+// PHOTOS 배열은 photos-data.js 에서 로드됩니다
+
+// ── 갤러리 렌더 ──
+let curFilter = 'all';
+let lbIndex = 0;
+let filteredPhotos = [];
+
+function renderGallery(cat) {
+  curFilter = cat;
+  filteredPhotos = cat === 'all' ? PHOTOS : PHOTOS.filter(p => p.cat === cat);
+  const grid = document.getElementById('galGrid');
+
+  if (!filteredPhotos.length) {
+    grid.innerHTML = '<div class="gal-empty">사진을 준비 중입니다 📷</div>';
+    return;
+  }
+
+  grid.innerHTML = filteredPhotos.map((p, i) => `
+    <div class="gal-item" onclick="openLb(${i})">
+      <img src="${p.src}" alt="${p.caption}" loading="lazy"
+           onerror="this.closest('.gal-item').style.display='none'">
+      <div class="gal-overlay">
+        <div class="gal-overlay-tag">${p.cat}</div>
+        <div class="gal-overlay-cap">${p.caption}</div>
+        <div class="gal-overlay-date">${p.date}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterGal(cat, btn) {
+  document.querySelectorAll('.gal-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  renderGallery(cat);
+}
+
+// ── 라이트박스 ──
+function openLb(idx) {
+  lbIndex = idx;
+  showLb();
+  document.getElementById('galLb').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+
+function showLb() {
+  const p = filteredPhotos[lbIndex];
+  document.getElementById('galLbImg').src = p.src;
+  document.getElementById('galLbTag').textContent = p.cat;
+  document.getElementById('galLbCap').textContent = p.caption;
+  document.getElementById('galLbDate').textContent = p.date;
+}
+
+function lbNav(dir) {
+  lbIndex = (lbIndex + dir + filteredPhotos.length) % filteredPhotos.length;
+  showLb();
+}
+
+function closeLb() {
+  document.getElementById('galLb').classList.remove('on');
+  document.body.style.overflow = '';
+}
+
+function closeLbBg(e) {
+  if (e.target === document.getElementById('galLb')) closeLb();
+}
+
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('galLb').classList.contains('on')) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft')  lbNav(-1);
+  if (e.key === 'ArrowRight') lbNav(1);
+});
+
 renderSermons(SUNDAY, 'sun');
+renderPraise(PRAISE);
 renderNews();
 renderBulletins();
+renderGallery('all');
 fetchLiveSermons(); // YouTube RSS 자동 업데이트
 </script>
 
