@@ -53,6 +53,12 @@ const PHOTOS = [
     caption: '교회 성도님들 친교 모임',
     date: '2025년'
   },
+  {
+    src: 'photos/youth-outing-01.jpg',
+    cat: '청소년',
+    caption: 'Youth Group Outing',
+    date: '2025년'
+  },
 
   // {
   //   src:     'photos/파일명.jpg',
