@@ -27,22 +27,6 @@ const PHOTOS = [
     caption: '목자 훈련 학교 (Discipleship Leader Training)',
     date: '2025년'
   },
-  {
-    src: 'photos/youth-fundraiser.jpg',
-    cat: '청소년',
-    caption: 'Youth Group Fundraiser',
-    date: '2025년'
-  },
-  {
-    src: 'photos/fellowship-seniors.jpg',
-    cat: '친교',
-    caption: '교회 성도님들 친교 모임',
-    date: '2025년'
-  },
-  // ↓↓↓  새 사진은 여기 아래에 추가하세요  ↓↓↓
-
-
-
   //{
   //  src: 'photos/youth-fundraiser.jpg',
   //  cat: '청소년',
@@ -55,6 +39,20 @@ const PHOTOS = [
   //  caption: '교회 성도님들 친교 모임',
   //  date: '2025년'
   //},
+
+  // ↓↓↓  새 사진은 여기 아래에 추가하세요  ↓↓↓
+  {
+    src: 'photos/youth-fundraiser.jpg',
+    cat: '청소년',
+    caption: 'Youth Group Fundraiser',
+    date: '2025년'
+  },
+  {
+    src: 'photos/fellowship-seniors.jpg',
+    cat: '친교',
+    caption: '교회 성도님들 친교 모임',
+    date: '2025년'
+  },
 
   // {
   //   src:     'photos/파일명.jpg',
