@@ -14,102 +14,60 @@
       --teal-light: #5CC4D8;
       --green:      #8DC63F;
       --green-dark: #6EA02F;
-      --white:      #ffffff;
       --bg:         #F7FAFB;
       --text:       #1A2332;
       --text-mid:   #4A5568;
       --text-light: #718096;
       --border:     #E2E8F0;
-      --shadow:     0 4px 20px rgba(0,0,0,0.08);
-      --shadow-lg:  0 8px 35px rgba(0,0,0,0.14);
+      --shadow:     0 4px 20px rgba(0,0,0,.08);
+      --shadow-lg:  0 8px 35px rgba(0,0,0,.14);
       --r:          12px;
       --r-lg:       20px;
     }
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{font-family:'Noto Sans KR','Inter',sans-serif;color:var(--text);background:var(--white);line-height:1.7}
+    body{font-family:'Noto Sans KR','Inter',sans-serif;color:var(--text);background:#fff;line-height:1.7}
 
     /* ── NAVBAR ── */
-    .nav{
-      position:fixed;top:0;width:100%;z-index:1000;
-      background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(0,0,0,0.07);
-      padding:.7rem 2rem;
-      display:flex;align-items:center;justify-content:space-between;
-      box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:box-shadow .3s;
-    }
+    .nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.07);padding:.7rem 2rem;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.06);transition:box-shadow .3s}
     .nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
     .nav-logo img{height:46px;width:auto}
     .nav-logo-fallback{display:none}
     .nav-logo-fallback .t1{font-size:1rem;font-weight:700;color:var(--teal);line-height:1.2}
     .nav-logo-fallback .t2{font-size:.7rem;font-weight:700;color:var(--green);letter-spacing:.06em;text-transform:uppercase}
     .nav-links{display:flex;gap:.15rem;list-style:none;align-items:center}
-    .nav-links a{
-      text-decoration:none;color:var(--text-mid);font-size:.88rem;font-weight:500;
-      padding:.45rem .85rem;border-radius:8px;transition:all .2s;
-    }
+    .nav-links a{text-decoration:none;color:var(--text-mid);font-size:.88rem;font-weight:500;padding:.45rem .85rem;border-radius:8px;transition:all .2s}
     .nav-links a:hover{color:var(--teal);background:rgba(46,156,181,.08)}
-    .nav-donate{
-      background:linear-gradient(135deg,var(--green),var(--green-dark)) !important;
-      color:#fff !important;border-radius:25px !important;
-      padding:.45rem 1.1rem !important;font-weight:700 !important;
-      box-shadow:0 3px 10px rgba(141,198,63,.3);
-    }
+    .nav-donate{background:linear-gradient(135deg,var(--green),var(--green-dark)) !important;color:#fff !important;border-radius:25px !important;padding:.45rem 1.1rem !important;font-weight:700 !important;box-shadow:0 3px 10px rgba(141,198,63,.3)}
     .nav-donate:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(141,198,63,.45) !important}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
     .hamburger span{width:23px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
 
     /* ── HERO ── */
     .hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-    .hero-bg{
-      position:absolute;inset:0;
-      background-image:url('church-building.png');
-      background-size:cover;background-position:center top;
-      background-color:#1a3040;
-    }
-    .hero-bg::after{
-      content:'';position:absolute;inset:0;
-      background:linear-gradient(160deg,rgba(10,25,40,.72) 0%,rgba(30,100,130,.4) 55%,rgba(50,130,60,.18) 100%);
-    }
+    .hero-bg{position:absolute;inset:0;background-image:url('church-building.png');background-size:cover;background-position:center top;background-color:#1a3040}
+    .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(10,25,40,.72) 0%,rgba(30,100,130,.4) 55%,rgba(50,130,60,.18) 100%)}
     .hero-content{position:relative;z-index:1;text-align:center;color:#fff;max-width:820px;padding:2rem}
     .hero-ko{font-size:1.25rem;font-weight:300;letter-spacing:.18em;margin-bottom:.4rem;opacity:.9;text-shadow:0 1px 5px rgba(0,0,0,.3)}
     .hero-en{font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:800;line-height:1.15;text-shadow:0 2px 10px rgba(0,0,0,.3)}
     .hero-of{color:#a8e6f0;font-weight:500}
-    .hero-verse{
-      font-size:1rem;font-style:italic;opacity:.88;
-      max-width:520px;margin:1.4rem auto 2.2rem;
-      text-shadow:0 1px 4px rgba(0,0,0,.3);line-height:1.8;
-    }
+    .hero-verse{font-size:1rem;font-style:italic;opacity:.88;max-width:520px;margin:1.4rem auto 2.2rem;text-shadow:0 1px 4px rgba(0,0,0,.3);line-height:1.8}
     .hero-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
-    .btn{
-      padding:.85rem 1.9rem;border-radius:50px;font-size:.97rem;font-weight:700;
-      text-decoration:none;border:none;cursor:pointer;
-      transition:all .3s;display:inline-flex;align-items:center;gap:.5rem;font-family:inherit;
-    }
+    .btn{padding:.85rem 1.9rem;border-radius:50px;font-size:.97rem;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all .3s;display:inline-flex;align-items:center;gap:.5rem;font-family:inherit}
     .btn-teal{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;box-shadow:0 4px 16px rgba(46,156,181,.4)}
     .btn-teal:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(46,156,181,.5)}
     .btn-outline-white{background:rgba(255,255,255,.14);color:#fff;border:2px solid rgba(255,255,255,.55);backdrop-filter:blur(4px)}
     .btn-outline-white:hover{background:rgba(255,255,255,.25);transform:translateY(-2px)}
     .btn-green{background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;box-shadow:0 4px 16px rgba(141,198,63,.4)}
     .btn-green:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(141,198,63,.5)}
-    .scroll-hint{
-      position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);
-      color:rgba(255,255,255,.65);font-size:.8rem;
-      display:flex;flex-direction:column;align-items:center;gap:.4rem;
-      animation:bob 2.2s infinite;
-    }
+    .scroll-hint{position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.65);font-size:.8rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;animation:bob 2.2s infinite}
     @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-9px)}}
 
     /* ── SECTIONS ── */
     section{padding:5rem 0}
     .container{max-width:1180px;margin:0 auto;padding:0 1.75rem}
     .sec-hd{text-align:center;margin-bottom:3rem}
-    .badge{
-      display:inline-block;
-      background:linear-gradient(135deg,var(--teal-light),var(--teal));
-      color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-      padding:.3rem 1rem;border-radius:20px;margin-bottom:.7rem;
-    }
+    .badge{display:inline-block;background:linear-gradient(135deg,var(--teal-light),var(--teal));color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem 1rem;border-radius:20px;margin-bottom:.7rem}
     .sec-title{font-size:clamp(1.75rem,3.8vw,2.4rem);font-weight:700;color:var(--text);margin-bottom:.6rem}
     .sec-sub{font-size:1rem;color:var(--text-light);max-width:580px;margin:0 auto}
     .divider{width:55px;height:4px;background:linear-gradient(90deg,var(--teal),var(--green));border-radius:2px;margin:1rem auto 0}
@@ -120,15 +78,9 @@
     #invite::after{content:'';position:absolute;bottom:-40px;left:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(46,156,181,.1),transparent 70%)}
     .invite-inner{display:grid;grid-template-columns:auto 1fr;gap:3.5rem;align-items:center;position:relative;z-index:1}
     .invite-poster{position:relative;flex-shrink:0}
-    .invite-poster img{width:320px;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.18),0 6px 20px rgba(0,0,0,.1);display:block;transform:rotate(-1.5deg);transition:transform .4s ease}
+    .invite-poster img{width:320px;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.18),0 6px 20px rgba(0,0,0,.1);display:block;transform:rotate(-1.5deg);transition:transform .4s}
     .invite-poster:hover img{transform:rotate(0deg) scale(1.02)}
-    .invite-poster-badge{
-      position:absolute;top:-14px;left:50%;transform:translateX(-50%);
-      background:linear-gradient(135deg,var(--green),var(--green-dark));
-      color:#fff;font-size:.78rem;font-weight:800;letter-spacing:.1em;
-      padding:.4rem 1.4rem;border-radius:30px;white-space:nowrap;box-shadow:0 4px 12px rgba(141,198,63,.4);
-    }
-    .invite-info{padding:.5rem 0}
+    .invite-poster-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;font-size:.78rem;font-weight:800;letter-spacing:.1em;padding:.4rem 1.4rem;border-radius:30px;white-space:nowrap;box-shadow:0 4px 12px rgba(141,198,63,.4)}
     .invite-eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-dark);margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
     .invite-eyebrow::before{content:'';width:28px;height:2px;background:var(--green);border-radius:2px}
     .invite-title{font-size:clamp(2rem,4vw,2.8rem);font-weight:900;color:var(--text);line-height:1.2;margin-bottom:.4rem}
@@ -160,11 +112,42 @@
     .info-box .ib-title{font-size:.85rem;font-weight:700;color:var(--teal);margin-bottom:.45rem}
     .info-box .ib-body{font-size:.86rem;color:var(--text-mid);line-height:1.85}
     .pastor-wrap{display:flex;gap:1.6rem;align-items:flex-start}
-    .pastor-avatar{width:160px;height:160px;border-radius:16px;flex-shrink:0;background:linear-gradient(135deg,var(--teal),var(--green));display:flex;align-items:center;justify-content:center;font-size:2.6rem;color:#fff;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.15)}
+    .pastor-avatar{width:160px;height:160px;border-radius:16px;flex-shrink:0;background:linear-gradient(135deg,var(--teal),var(--green));display:flex;align-items:center;justify-content:center;font-size:2.6rem;color:#fff;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.15)}
     .pastor-avatar img{width:100%;height:100%;object-fit:cover;object-position:center top}
     .pastor-meta h3{font-size:1.25rem;font-weight:800;color:var(--text)}
     .pastor-meta .role{font-size:.88rem;color:var(--teal);font-weight:600;margin-bottom:.6rem}
     .pastor-meta .quote{font-style:italic;font-size:.9rem;color:var(--teal-light)}
+
+    /* ── VISION ── */
+    #vision{background:linear-gradient(150deg,#0a1e2d 0%,#0e2e44 40%,#0d3320 100%);color:#fff;padding:6rem 0;position:relative;overflow:hidden}
+    #vision::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 20% 50%,rgba(46,156,181,.12) 0%,transparent 60%),radial-gradient(ellipse 50% 70% at 80% 50%,rgba(141,198,63,.1) 0%,transparent 60%);pointer-events:none}
+    .vis-hd{text-align:center;margin-bottom:1rem;position:relative;z-index:1}
+    .vis-badge{display:inline-block;background:rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.28rem 1rem;border-radius:20px;border:1px solid rgba(255,255,255,.2);margin-bottom:.8rem}
+    .vis-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:.4rem}
+    .vis-title span{background:linear-gradient(90deg,#5CC4D8,#8DC63F);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .vis-sub{font-size:.97rem;opacity:.72;max-width:560px;margin:0 auto 3rem;line-height:1.8}
+    .world-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem;position:relative;z-index:1}
+    .wcard{flex:1;min-width:140px;max-width:200px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:1.8rem 1rem 1.5rem;text-align:center;transition:all .35s;backdrop-filter:blur(6px)}
+    .wcard:hover{background:rgba(255,255,255,.11);transform:translateY(-6px);border-color:rgba(255,255,255,.25);box-shadow:0 12px 36px rgba(0,0,0,.3)}
+    .wcard-letter{font-size:3.8rem;font-weight:900;line-height:1;margin-bottom:.5rem;display:block}
+    .wcard.w .wcard-letter{color:#5CC4D8}.wcard.o .wcard-letter{color:#7dd98a}.wcard.r .wcard-letter{color:#f6a83c}.wcard.l .wcard-letter{color:#e07bdb}.wcard.d .wcard-letter{color:#8DC63F}
+    .wcard-word{font-size:.88rem;font-weight:700;letter-spacing:.06em;color:rgba(255,255,255,.9);margin-bottom:.35rem}
+    .wcard-ko{font-size:.8rem;color:rgba(255,255,255,.55)}
+    .vis-banner{position:relative;z-index:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:2.2rem 2.5rem;max-width:820px;margin:0 auto 3.5rem;display:flex;gap:2rem;align-items:center;flex-wrap:wrap;backdrop-filter:blur(8px)}
+    .vis-banner-year{font-size:3rem;font-weight:900;line-height:1;background:linear-gradient(135deg,#5CC4D8,#8DC63F);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;flex-shrink:0}
+    .vis-banner-body{flex:1;min-width:200px}
+    .vis-banner-body h3{font-size:1.25rem;font-weight:800;margin-bottom:.5rem;color:#fff}
+    .vis-banner-body p{font-size:.88rem;color:rgba(255,255,255,.68);line-height:1.85}
+    .vis-banner-body .vis-tag{display:inline-block;background:linear-gradient(135deg,#8DC63F,#6EA02F);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:.2rem .65rem;border-radius:20px;margin-bottom:.5rem}
+    .wship-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:1rem;position:relative;z-index:1;max-width:1000px;margin:0 auto}
+    .wship-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.4rem 1.2rem;text-align:center;transition:all .3s;backdrop-filter:blur(6px)}
+    .wship-card:hover{background:rgba(255,255,255,.12);transform:translateY(-4px)}
+    .wship-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto .9rem;font-size:1.15rem}
+    .wship-icon.sun{background:linear-gradient(135deg,#5CC4D8,#2E9CB5)}.wship-icon.fri{background:linear-gradient(135deg,#e07bdb,#9b3aab)}.wship-icon.ss{background:linear-gradient(135deg,#f6a83c,#d4821a)}.wship-icon.youth{background:linear-gradient(135deg,#7dd98a,#3aab56)}.wship-icon.cell{background:linear-gradient(135deg,#8DC63F,#6EA02F)}
+    .wship-name{font-size:.78rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:.3rem}
+    .wship-time{font-size:1.45rem;font-weight:800;color:#fff;line-height:1.1;margin-bottom:.2rem}
+    .wship-loc{font-size:.76rem;color:rgba(255,255,255,.5)}
+    .wship-day{font-size:.78rem;color:rgba(255,255,255,.45);margin-top:.15rem}
 
     /* ── SERMONS ── */
     #sermons{background:#fff}
@@ -215,10 +198,7 @@
     .ni{padding:.9rem 0;border-bottom:1px solid var(--border)}
     .ni:last-child{border-bottom:none}
     .ni-cat{font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.14rem .5rem;border-radius:4px;margin-bottom:.38rem;display:inline-block}
-    .c-w{background:#EBF8FF;color:#2B6CB0}
-    .c-f{background:#FFF0E6;color:#C05621}
-    .c-p{background:#F0FFF4;color:#276749}
-    .c-e{background:#FFF5F7;color:#97266D}
+    .c-w{background:#EBF8FF;color:#2B6CB0}.c-f{background:#FFF0E6;color:#C05621}.c-p{background:#F0FFF4;color:#276749}.c-e{background:#FFF5F7;color:#97266D}
     .ni h4{font-size:.94rem;font-weight:600;color:var(--text);margin-bottom:.25rem;line-height:1.4}
     .ni p{font-size:.84rem;color:var(--text-light);line-height:1.65}
     .ev{display:flex;gap:.9rem;padding:.9rem 0;border-bottom:1px solid var(--border);align-items:flex-start}
@@ -242,8 +222,7 @@
     .bul-actions{display:flex;gap:.7rem;margin-top:1rem}
     .bsm{padding:.48rem 1.1rem;font-size:.84rem;border-radius:25px;border:none;cursor:pointer;font-weight:700;transition:all .2s;display:flex;align-items:center;gap:.38rem;text-decoration:none;font-family:inherit}
     .bsm-fill{background:var(--teal);color:#fff}.bsm-fill:hover{background:var(--teal-dark)}
-    .bsm-out{background:transparent;border:2px solid var(--teal);color:var(--teal)}
-    .bsm-out:hover{background:var(--teal);color:#fff}
+    .bsm-out{background:transparent;border:2px solid var(--teal);color:var(--teal)}.bsm-out:hover{background:var(--teal);color:#fff}
     .bul-list{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow);overflow:hidden}
     .bul-lhead{background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;padding:1.2rem 1.4rem}
     .bul-lhead h3{font-size:1rem;font-weight:700}
@@ -255,79 +234,13 @@
     .bli-dl{color:var(--teal);font-size:.95rem;cursor:pointer;padding:.28rem .45rem;border-radius:6px;transition:all .2s}
     .bli-dl:hover{background:rgba(46,156,181,.1)}
 
-    /* ── VISIT ── */
-    #visit{background:var(--bg)}
-    .visit-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:2.5rem;align-items:start}
-    .visit-info{background:#fff;border-radius:var(--r-lg);padding:2.3rem;box-shadow:var(--shadow)}
-    .visit-info h3{font-size:1.25rem;color:var(--teal);margin-bottom:1.4rem}
-    .vd{display:flex;gap:.9rem;margin-bottom:1.2rem;align-items:flex-start}
-    .vd-icon{width:40px;height:40px;border-radius:10px;flex-shrink:0;background:linear-gradient(135deg,var(--teal-light),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem}
-    .vd-icon.g{background:linear-gradient(135deg,var(--green),var(--green-dark))}
-    .vd-text h4{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:.15rem}
-    .vd-text p{font-size:.84rem;color:var(--text-light);line-height:1.65}
-    .vd-text a{color:var(--teal);text-decoration:none}.vd-text a:hover{text-decoration:underline}
-    .cform{background:#fff;border-radius:var(--r-lg);padding:2.3rem;box-shadow:var(--shadow)}
-    .cform h3{font-size:1.25rem;color:var(--text);margin-bottom:1.4rem}
-    .fr2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-    .fg{margin-bottom:1rem}
-    .fg label{display:block;font-size:.84rem;font-weight:600;color:var(--text-mid);margin-bottom:.38rem}
-    .fg label .req{color:#E53E3E;margin-left:.15rem}
-    .fc{width:100%;padding:.72rem 1rem;border:1.5px solid var(--border);border-radius:10px;font-size:.93rem;color:var(--text);background:var(--bg);transition:all .2s;font-family:inherit}
-    .fc:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 3px rgba(46,156,181,.12)}
-    textarea.fc{resize:vertical;min-height:96px}
-    .fsub{width:100%;padding:.88rem;background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;border:none;border-radius:50px;font-size:.97rem;font-weight:700;cursor:pointer;transition:all .3s;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:.5rem}
-    .fsub:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(46,156,181,.4)}
-
-    /* ── VISION ── */
-    #vision{background:linear-gradient(150deg,#0a1e2d 0%,#0e2e44 40%,#0d3320 100%);color:#fff;padding:6rem 0;position:relative;overflow:hidden}
-    #vision::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 20% 50%,rgba(46,156,181,.12) 0%,transparent 60%),radial-gradient(ellipse 50% 70% at 80% 50%,rgba(141,198,63,.1) 0%,transparent 60%);pointer-events:none}
-    .vis-hd{text-align:center;margin-bottom:1rem;position:relative;z-index:1}
-    .vis-badge{display:inline-block;background:rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.28rem 1rem;border-radius:20px;border:1px solid rgba(255,255,255,.2);margin-bottom:.8rem}
-    .vis-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:.4rem}
-    .vis-title span{background:linear-gradient(90deg,#5CC4D8,#8DC63F);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .vis-sub{font-size:.97rem;opacity:.72;max-width:560px;margin:0 auto 3rem;line-height:1.8}
-    .world-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem;position:relative;z-index:1}
-    .wcard{flex:1;min-width:140px;max-width:200px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:1.8rem 1rem 1.5rem;text-align:center;transition:all .35s;cursor:default;backdrop-filter:blur(6px)}
-    .wcard:hover{background:rgba(255,255,255,.11);transform:translateY(-6px);border-color:rgba(255,255,255,.25);box-shadow:0 12px 36px rgba(0,0,0,.3)}
-    .wcard-letter{font-size:3.8rem;font-weight:900;line-height:1;margin-bottom:.5rem;display:block}
-    .wcard.w .wcard-letter{color:#5CC4D8}
-    .wcard.o .wcard-letter{color:#7dd98a}
-    .wcard.r .wcard-letter{color:#f6a83c}
-    .wcard.l .wcard-letter{color:#e07bdb}
-    .wcard.d .wcard-letter{color:#8DC63F}
-    .wcard-word{font-size:.88rem;font-weight:700;letter-spacing:.06em;color:rgba(255,255,255,.9);margin-bottom:.35rem}
-    .wcard-ko{font-size:.8rem;color:rgba(255,255,255,.55)}
-    .vis-banner{position:relative;z-index:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:2.2rem 2.5rem;max-width:820px;margin:0 auto 3.5rem;display:flex;gap:2rem;align-items:center;flex-wrap:wrap;backdrop-filter:blur(8px)}
-    .vis-banner-year{font-size:3rem;font-weight:900;line-height:1;background:linear-gradient(135deg,#5CC4D8,#8DC63F);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;flex-shrink:0}
-    .vis-banner-body{flex:1;min-width:200px}
-    .vis-banner-body h3{font-size:1.25rem;font-weight:800;margin-bottom:.5rem;color:#fff}
-    .vis-banner-body p{font-size:.88rem;color:rgba(255,255,255,.68);line-height:1.85}
-    .vis-banner-body .vis-tag{display:inline-block;background:linear-gradient(135deg,#8DC63F,#6EA02F);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:.2rem .65rem;border-radius:20px;margin-bottom:.5rem}
-    .wship-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:1rem;position:relative;z-index:1;max-width:1000px;margin:0 auto}
-    .wship-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.4rem 1.2rem;text-align:center;transition:all .3s;backdrop-filter:blur(6px)}
-    .wship-card:hover{background:rgba(255,255,255,.12);transform:translateY(-4px)}
-    .wship-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto .9rem;font-size:1.15rem}
-    .wship-icon.sun{background:linear-gradient(135deg,#5CC4D8,#2E9CB5)}
-    .wship-icon.fri{background:linear-gradient(135deg,#e07bdb,#9b3aab)}
-    .wship-icon.ss {background:linear-gradient(135deg,#f6a83c,#d4821a)}
-    .wship-icon.youth{background:linear-gradient(135deg,#7dd98a,#3aab56)}
-    .wship-icon.cell{background:linear-gradient(135deg,#8DC63F,#6EA02F)}
-    .wship-name{font-size:.78rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:.3rem}
-    .wship-time{font-size:1.45rem;font-weight:800;color:#fff;line-height:1.1;margin-bottom:.2rem}
-    .wship-loc{font-size:.76rem;color:rgba(255,255,255,.5)}
-    .wship-day{font-size:.78rem;color:rgba(255,255,255,.45);margin-top:.15rem}
-
     /* ── GALLERY ── */
     #gallery{background:var(--bg)}
     .gal-filter{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
-    .gal-btn{
-      padding:.42rem 1.1rem;border-radius:30px;border:1.5px solid var(--border);
-      background:#fff;color:var(--text-mid);font-size:.84rem;font-weight:600;
-      cursor:pointer;transition:all .22s;font-family:inherit;
-    }
+    .gal-btn{padding:.42rem 1.1rem;border-radius:30px;border:1.5px solid var(--border);background:#fff;color:var(--text-mid);font-size:.84rem;font-weight:600;cursor:pointer;transition:all .22s;font-family:inherit}
     .gal-btn:hover{border-color:var(--teal);color:var(--teal)}
     .gal-btn.on{background:var(--teal);color:#fff;border-color:var(--teal);box-shadow:0 3px 12px rgba(46,156,181,.3)}
-    /* Magazine Gallery */
+    /* Magazine */
     .gal-mag{display:grid;grid-template-columns:1.65fr 1fr;gap:.9rem;height:500px}
     .gal-hero{position:relative;border-radius:20px;overflow:hidden;cursor:pointer;background:#1a2a3a;box-shadow:var(--shadow-lg)}
     .gal-hero img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .3s ease,transform .6s ease}
@@ -353,11 +266,7 @@
     .gal-dot{width:9px;height:9px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .35s;border:none;padding:0;flex-shrink:0}
     .gal-dot.on{background:var(--teal);width:26px;border-radius:5px}
     .gal-empty{text-align:center;padding:4rem 2rem;color:var(--text-light);font-size:.95rem}
-    @media(max-width:820px){
-      .gal-mag{grid-template-columns:1fr;height:auto}
-      .gal-hero{aspect-ratio:16/9;height:auto}
-      .gal-thumbs{grid-template-rows:auto;height:200px}
-    }
+    @media(max-width:820px){.gal-mag{grid-template-columns:1fr;height:auto}.gal-hero{aspect-ratio:16/9;height:auto}.gal-thumbs{grid-template-rows:auto;height:200px}}
     /* Lightbox */
     .gal-lb{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:3000;display:none;align-items:center;justify-content:center;padding:1rem}
     .gal-lb.on{display:flex}
@@ -369,10 +278,32 @@
     .gal-lb-x:hover{background:rgba(255,255,255,.28)}
     .gal-lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.13);border:2px solid rgba(255,255,255,.25);color:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
     .gal-lb-nav:hover{background:rgba(255,255,255,.25)}
-    .gal-lb-prev{left:-60px}
-    .gal-lb-next{right:-60px}
+    .gal-lb-prev{left:-60px}.gal-lb-next{right:-60px}
     @media(max-width:700px){.gal-lb-prev{left:-2px}.gal-lb-next{right:-2px}}
-    .gal-empty{text-align:center;padding:3rem;color:var(--text-light);font-size:.95rem}
+
+    /* ── VISIT ── */
+    #visit{background:var(--bg)}
+    .visit-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:2.5rem;align-items:start}
+    .visit-info{background:#fff;border-radius:var(--r-lg);padding:2.3rem;box-shadow:var(--shadow)}
+    .visit-info h3{font-size:1.25rem;color:var(--teal);margin-bottom:1.4rem}
+    .vd{display:flex;gap:.9rem;margin-bottom:1.2rem;align-items:flex-start}
+    .vd-icon{width:40px;height:40px;border-radius:10px;flex-shrink:0;background:linear-gradient(135deg,var(--teal-light),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem}
+    .vd-icon.g{background:linear-gradient(135deg,var(--green),var(--green-dark))}
+    .vd-text h4{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:.15rem}
+    .vd-text p{font-size:.84rem;color:var(--text-light);line-height:1.65}
+    .vd-text a{color:var(--teal);text-decoration:none}.vd-text a:hover{text-decoration:underline}
+    .cform{background:#fff;border-radius:var(--r-lg);padding:2.3rem;box-shadow:var(--shadow)}
+    .cform h3{font-size:1.25rem;color:var(--text);margin-bottom:1.4rem}
+    .fr2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .fg{margin-bottom:1rem}
+    .fg label{display:block;font-size:.84rem;font-weight:600;color:var(--text-mid);margin-bottom:.38rem}
+    .fg label .req{color:#E53E3E;margin-left:.15rem}
+    .fc{width:100%;padding:.72rem 1rem;border:1.5px solid var(--border);border-radius:10px;font-size:.93rem;color:var(--text);background:var(--bg);transition:all .2s;font-family:inherit}
+    .fc:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 3px rgba(46,156,181,.12)}
+    textarea.fc{resize:vertical;min-height:96px}
+    .fsub{width:100%;padding:.88rem;background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;border:none;border-radius:50px;font-size:.97rem;font-weight:700;cursor:pointer;transition:all .3s;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:.5rem}
+    .fsub:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(46,156,181,.4)}
+
     /* ── DONATE ── */
     #donate{background:linear-gradient(150deg,#0d1e2e 0%,#1a3a50 50%,#0d2535 100%);color:#fff;text-align:center;padding:5rem 0 4rem;position:relative;overflow:hidden}
     #donate::before{content:'';position:absolute;top:-40%;left:-15%;width:55%;height:180%;background:radial-gradient(circle,rgba(141,198,63,.07) 0%,transparent 70%)}
@@ -382,11 +313,9 @@
     .don-title{font-size:clamp(1.8rem,3.8vw,2.5rem);font-weight:800;margin-bottom:.9rem}
     .don-sub{font-size:1.02rem;opacity:.78;max-width:560px;margin:0 auto 1rem;line-height:1.85}
     .don-verse{font-style:italic;font-size:.9rem;color:#a8e6f0;max-width:480px;margin:0 auto 1.8rem;opacity:.88}
-    /* Donation type pills */
     .don-types{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center;margin-bottom:.8rem}
-    .don-type-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:50px;padding:.38rem 1.1rem;font-size:.84rem;color:rgba(255,255,255,.82);backdrop-filter:blur(6px);display:flex;align-items:center;gap:.35rem;letter-spacing:.01em}
-    .don-note{font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:2rem;letter-spacing:.02em}
-    /* Donation method cards */
+    .don-type-pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:50px;padding:.38rem 1.1rem;font-size:.84rem;color:rgba(255,255,255,.82);backdrop-filter:blur(6px);display:flex;align-items:center;gap:.35rem}
+    .don-note{font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:2rem}
     .don-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;max-width:680px;margin:0 auto 2.2rem}
     @media(max-width:560px){.don-info-grid{grid-template-columns:1fr}}
     .don-info-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:1.5rem 1.4rem;text-align:left;backdrop-filter:blur(8px);transition:background .2s,transform .2s}
@@ -394,12 +323,10 @@
     .don-info-card-icon{font-size:1.8rem;margin-bottom:.6rem;display:block}
     .don-info-card-title{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:.3rem}
     .don-info-card-bank{font-size:.82rem;color:rgba(255,255,255,.65);margin-bottom:.5rem}
-    .don-info-card-addr{font-size:.97rem;font-weight:700;color:#a8e6f0;word-break:break-all;letter-spacing:.01em}
-    .don-info-card-addr a{color:#8de8a0;text-decoration:none}
-    .don-info-card-addr a:hover{text-decoration:underline}
-    .don-info-card-copy{display:inline-flex;align-items:center;gap:.3rem;margin-top:.7rem;font-size:.78rem;color:rgba(255,255,255,.5);background:rgba(255,255,255,.1);border:none;border-radius:30px;padding:.28rem .8rem;cursor:pointer;transition:background .2s,color .2s}
+    .don-info-card-addr{font-size:.97rem;font-weight:700;color:#a8e6f0;word-break:break-all}
+    .don-info-card-addr a{color:#8de8a0;text-decoration:none}.don-info-card-addr a:hover{text-decoration:underline}
+    .don-info-card-copy{display:inline-flex;align-items:center;gap:.3rem;margin-top:.7rem;font-size:.78rem;color:rgba(255,255,255,.5);background:rgba(255,255,255,.1);border:none;border-radius:30px;padding:.28rem .8rem;cursor:pointer;transition:background .2s,color .2s;font-family:inherit}
     .don-info-card-copy:hover{background:rgba(255,255,255,.2);color:#fff}
-    /* Givebutter widget wrapper */
     .givebutter-wrap{max-width:680px;margin:0 auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,.35)}
 
     /* ── FOOTER ── */
@@ -417,8 +344,7 @@
     .ft-social a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.85rem;transition:all .2s}
     .ft-social a:hover{background:var(--teal);transform:translateY(-2px)}
     .ft-bot{border-top:1px solid rgba(255,255,255,.09);padding-top:1.4rem;display:flex;align-items:center;justify-content:space-between;font-size:.8rem}
-    .ft-bot a{color:rgba(255,255,255,.4);text-decoration:none}
-    .ft-bot a:hover{color:var(--teal-light)}
+    .ft-bot a{color:rgba(255,255,255,.4);text-decoration:none}.ft-bot a:hover{color:var(--teal-light)}
 
     /* ── TOAST ── */
     .toast{position:fixed;bottom:1.8rem;right:1.8rem;background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;padding:.9rem 1.4rem;border-radius:var(--r);box-shadow:var(--shadow-lg);display:none;align-items:center;gap:.7rem;z-index:3000;font-size:.92rem;font-weight:600;animation:slidein .3s ease;max-width:340px}
@@ -783,7 +709,7 @@
       <p class="sec-sub">함께 나누는 믿음의 여정 · 소중한 순간들을 담았습니다</p>
       <div class="divider"></div>
     </div>
-    <div class="gal-filter" id="galFilter">
+    <div class="gal-filter">
       <button class="gal-btn on" onclick="filterGal('all',this)">전체</button>
       <button class="gal-btn" onclick="filterGal('예배',this)">🙏 예배</button>
       <button class="gal-btn" onclick="filterGal('친교',this)">🤝 친교</button>
@@ -809,7 +735,7 @@
   </div>
 </section>
 
-<!-- 라이트박스 -->
+<!-- ───── GALLERY LIGHTBOX ───── -->
 <div class="gal-lb" id="galLb" onclick="closeLbBg(event)">
   <div class="gal-lb-inner">
     <button class="gal-lb-x" onclick="closeLb()"><i class="fas fa-times"></i></button>
@@ -1014,39 +940,38 @@
 //  교회 데이터 (2026년 5월 10일 주보 기준)
 // ══════════════════════════════════════════════
 
-// ── 예비 데이터 (YouTube 로드 실패 시 표시) ──
 const SUNDAY = [
-  { id:'_euKMIRuWCE', title:'아픔의 대물림 끊어내기', date:'2026-05-10', preacher:'안병국 담임목사', ref:'엡 6:1-3 · 가정의달 특별설교 2' },
-  { id:'x3tazGuRHCc', title:'가정을 세우는 5단계 리모델링', date:'2026-05-04', preacher:'안병국 담임목사', ref:'가정의달 특별설교 1' },
-  { id:'uyRrNpvHjM8', title:'광야의 약탈자 상대하기', date:'2026-04-27', preacher:'안병국 담임목사', ref:'출애굽기 17:8-16' },
-  { id:'4FJ1dibjyvM', title:'하나님은 계획이 있으시다', date:'2026-04-20', preacher:'안병국 담임목사', ref:'출애굽기 17:1-7' },
-  { id:'uNv5__PpLyA', title:'만나는 충분히 내린다', date:'2026-04-13', preacher:'안병국 담임목사', ref:'출애굽기 16:1-12' },
-  { id:'kCaxEHIMA6g', title:'세례 받고, 떡을 떼라 (부활주일)', date:'2026-04-05', preacher:'안병국 담임목사', ref:'사도행전 2:41-42' },
+  { id:'_euKMIRuWCE', title:'아픔의 대물림 끊어내기',         date:'2026-05-10', preacher:'안병국 담임목사', ref:'엡 6:1-3 · 가정의달 특별설교 2' },
+  { id:'x3tazGuRHCc', title:'가정을 세우는 5단계 리모델링',   date:'2026-05-04', preacher:'안병국 담임목사', ref:'가정의달 특별설교 1' },
+  { id:'uyRrNpvHjM8', title:'광야의 약탈자 상대하기',         date:'2026-04-27', preacher:'안병국 담임목사', ref:'출애굽기 17:8-16' },
+  { id:'4FJ1dibjyvM', title:'하나님은 계획이 있으시다',       date:'2026-04-20', preacher:'안병국 담임목사', ref:'출애굽기 17:1-7' },
+  { id:'uNv5__PpLyA', title:'만나는 충분히 내린다',           date:'2026-04-13', preacher:'안병국 담임목사', ref:'출애굽기 16:1-12' },
+  { id:'kCaxEHIMA6g', title:'세례 받고, 떡을 떼라 (부활주일)',date:'2026-04-05', preacher:'안병국 담임목사', ref:'사도행전 2:41-42' },
 ];
 
 const FRIDAY = [
-  { id:'y27JpzZw0D4', title:'네 종류의 문제, 하나님의 답', date:'2026-05-02', preacher:'안병국 담임목사', ref:'시편 107:1-32' },
-  { id:'6axJq9H-6KA', title:'기도로 하나님의 마음을 바꾼다', date:'2026-04-25', preacher:'안병국 담임목사', ref:'시편 106:23 · 출 32:11-14' },
-  { id:'qk9MsK7w8yw', title:'위기를 넘어선 교회', date:'2026-04-18', preacher:'안병국 담임목사', ref:'사도행전 6:1-7' },
-  { id:'A0Xx3o6fyjg', title:'기도하는 집으로 불리는 교회', date:'2026-04-11', preacher:'안병국 담임목사', ref:'사도행전 4:23-31' },
-  { id:'FwpK2ye_hUE', title:'세상이 관심을 보이는 유니크한 교회', date:'2026-04-04', preacher:'안병국 담임목사', ref:'사도행전 2:43-47' },
-  { id:'45BIheHMvpo', title:'성령으로 충만한 교회', date:'2026-03-27', preacher:'안병국 담임목사', ref:'사도행전 2:1-5, 16-21' },
+  { id:'y27JpzZw0D4', title:'네 종류의 문제, 하나님의 답',         date:'2026-05-02', preacher:'안병국 담임목사', ref:'시편 107:1-32' },
+  { id:'6axJq9H-6KA', title:'기도로 하나님의 마음을 바꾼다',       date:'2026-04-25', preacher:'안병국 담임목사', ref:'시편 106:23 · 출 32:11-14' },
+  { id:'qk9MsK7w8yw', title:'위기를 넘어선 교회',                   date:'2026-04-18', preacher:'안병국 담임목사', ref:'사도행전 6:1-7' },
+  { id:'A0Xx3o6fyjg', title:'기도하는 집으로 불리는 교회',          date:'2026-04-11', preacher:'안병국 담임목사', ref:'사도행전 4:23-31' },
+  { id:'FwpK2ye_hUE', title:'세상이 관심을 보이는 유니크한 교회',   date:'2026-04-04', preacher:'안병국 담임목사', ref:'사도행전 2:43-47' },
+  { id:'45BIheHMvpo', title:'성령으로 충만한 교회',                  date:'2026-03-27', preacher:'안병국 담임목사', ref:'사도행전 2:1-5, 16-21' },
 ];
 
 const PRAISE = [
   { id:'Psf18BgqHXI', title:'내 영혼이 은총 입어 + 광야를 지나며', date:'2026-05-05', artist:'Oboist 임현애 · Pianist 성세리나' },
-  { id:'70kGnIm67Zo', title:'Bless This House', date:'새해 특송', artist:'Tenor 김동필 · Piano 김명숙' },
-  { id:'-_7ZkiJ3HlI', title:'주의 크신 복 · 은혜 아니면', date:'2024년 감사절', artist:'특별 찬양' },
-  { id:'FKomgFzrsIo', title:'모든 백성들 기뻐하라', date:'크리스마스 찬양', artist:'특별 찬양' },
+  { id:'70kGnIm67Zo', title:'Bless This House',                     date:'새해 특송',  artist:'Tenor 김동필 · Piano 김명숙' },
+  { id:'-_7ZkiJ3HlI', title:'주의 크신 복 · 은혜 아니면',          date:'2024년 감사절', artist:'특별 찬양' },
+  { id:'FKomgFzrsIo', title:'모든 백성들 기뻐하라',                 date:'크리스마스 찬양', artist:'특별 찬양' },
 ];
 
 const CHOIR = [
-  { id:'juloy2kukiI', title:'험한 십자가 능력있네', date:'2026-04-05', artist:'KCW 중창단' },
-  { id:'S9Duslqa3Xk', title:'나의 등 뒤에서 나를 도우시는 주', date:'2026년', artist:'KCW 중창단' },
-  { id:'Nl6M0sHW1Nk', title:'주님 나라 임하시네 & 한 믿음 가지고', date:'2026년', artist:'KCW 중창단' },
-  { id:'PJnqCyEskQ8', title:'내 너를 붙들리라', date:'2026년', artist:'KCW 중창단' },
-  { id:'S6ku7pmhXXs', title:'내 슬픔 변해', date:'2026년', artist:'KCW 중창단' },
-  { id:'BOFfPxQ21KU', title:'살아계신 주', date:'2026년 부활절', artist:'KCW 중창단 & Youth' },
+  { id:'juloy2kukiI', title:'험한 십자가 능력있네',              date:'2026-04-05',  artist:'KCW 중창단' },
+  { id:'S9Duslqa3Xk', title:'나의 등 뒤에서 나를 도우시는 주',  date:'2026년',      artist:'KCW 중창단' },
+  { id:'Nl6M0sHW1Nk', title:'주님 나라 임하시네 & 한 믿음 가지고', date:'2026년',   artist:'KCW 중창단' },
+  { id:'PJnqCyEskQ8', title:'내 너를 붙들리라',                  date:'2026년',      artist:'KCW 중창단' },
+  { id:'S6ku7pmhXXs', title:'내 슬픔 변해',                      date:'2026년',      artist:'KCW 중창단' },
+  { id:'BOFfPxQ21KU', title:'살아계신 주',                       date:'2026년 부활절', artist:'KCW 중창단 & Youth' },
 ];
 
 const NEWS = [
@@ -1061,7 +986,7 @@ const NEWS = [
     body:'한국 전통 놀이 소개 행사입니다. 장소: 2층/3층. 공기, 딱지, 재기차기, 윷놀이, 한복 입고 사진찍기 등. 어린이와 한국 전통 놀이에 관심 있으신 분 누구나 환영합니다.' },
   { cat:'기도', cls:'c-e',
     title:'금요 성령 기도회 — 매주 금요일 PM 7:30',
-    body:'\"시편 설교\" 시리즈로 진행됩니다. 안병국 담임목사 설교. 장소: 3층. 성도님들의 많은 참여를 부탁드립니다.' },
+    body:'"시편 설교" 시리즈로 진행됩니다. 안병국 담임목사 설교. 장소: 3층. 성도님들의 많은 참여를 부탁드립니다.' },
   { cat:'교회', cls:'c-w',
     title:'목장 모임 &amp; 친교실 섬김',
     body:'목장 모임은 매주 주일 오후 1시부터 자유롭게 진행됩니다. 금주 친교실 섬김은 남자 성도들이 준비합니다. 감사합니다.' },
@@ -1072,102 +997,82 @@ const NEWS = [
 
 const EVENTS = [
   { day:'10', mon:'May', title:'어머니 주일 (Mother\'s Day)', sub:'오전 11:00 | 본당 · 특별 연주 & 아버지들 회덮밥 준비' },
-  { day:'17', mon:'May', title:'목자 주일', sub:'오전 11:00 | 본당' },
-  { day:'25', mon:'May', title:'선교 주일', sub:'오전 11:00 | 본당' },
-  { day:'31', mon:'May', title:'전도주일 예배', sub:'오전 11:00 | 본당 · 1가정이 1가정 전도하기' },
-  { day:'31', mon:'May', title:'Youth Korean Culture Day', sub:'오후 2:00 | 2·3층 · 한국 전통 놀이' },
+  { day:'17', mon:'May', title:'목자 주일',                   sub:'오전 11:00 | 본당' },
+  { day:'25', mon:'May', title:'선교 주일',                   sub:'오전 11:00 | 본당' },
+  { day:'31', mon:'May', title:'전도주일 예배',               sub:'오전 11:00 | 본당 · 1가정이 1가정 전도하기' },
+  { day:'31', mon:'May', title:'Youth Korean Culture Day',    sub:'오후 2:00 | 2·3층 · 한국 전통 놀이' },
 ];
 
 const PAST_BULS = [
-  { title:'2026년 5월 3일 주보', date:'2026-05-03', url:'bulletins/2026-05-03.pdf' },
+  { title:'2026년 5월 3일 주보',  date:'2026-05-03', url:'bulletins/2026-05-03.pdf' },
   { title:'2026년 4월 26일 주보', date:'2026-04-26', url:'bulletins/2026-04-26.pdf' },
   { title:'2026년 4월 19일 주보', date:'2026-04-19', url:'bulletins/2026-04-19.pdf' },
   { title:'2026년 4월 12일 주보', date:'2026-04-12', url:'bulletins/2026-04-12.pdf' },
 ];
 
 // ══════════════════════════════════════════════
-//  렌더 함수
+//  설교 / 찬양 렌더
 // ══════════════════════════════════════════════
 
-// ── YouTube 자동 업데이트 ──
 const YT_CHANNEL = 'UCWFItfKDJ5oyYG60ooYCmLw';
-let liveSunday = null, liveFriday = null;
-let curTab = 'sun';
+let liveSunday = null, liveFriday = null, curTab = 'sun';
 
 function cleanTitle(raw) {
   return raw
-    .replace(/^\s*\(주일\s*예배\)\s*/i, '')
-    .replace(/^\s*\(금요성령기도회\)\s*/i, '')
-    .replace(/\s*\/\s*[A-Z][^/ㄱ-힣]*$/, '')  // 영문 번역 제거
-    .replace(/\s*\/\s*안병국\s*담임목사\s*$/i, '')
-    .replace(/\s*\/\s*[^/]+목사\s*$/i, '')
-    .replace(/~\s*/g, '-')
-    .trim();
+    .replace(/^\s*\(주일\s*예배\)\s*/i,'')
+    .replace(/^\s*\(금요성령기도회\)\s*/i,'')
+    .replace(/\s*\/\s*[A-Z][^/ㄱ-힣]*$/,'')
+    .replace(/\s*\/\s*안병국\s*담임목사\s*$/i,'')
+    .replace(/\s*\/\s*[^/]+목사\s*$/i,'')
+    .replace(/~\s*/g,'-').trim();
 }
-
 function extractRef(raw) {
-  const hits = [...raw.matchAll(/\(([^)]+)\)/g)].map(m => m[1]);
-  const ref = hits.filter(r => /\d/.test(r)).pop() || '';
-  return ref.replace(/^PS\s+/i, '').replace(/~/g, '-').trim();
+  const hits = [...raw.matchAll(/\(([^)]+)\)/g)].map(m=>m[1]);
+  return (hits.filter(r=>/\d/.test(r)).pop()||'').replace(/^PS\s+/i,'').replace(/~/g,'-').trim();
 }
 
 async function fetchLiveSermons() {
   const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${YT_CHANNEL}`;
-  const proxies = [
-    'https://api.allorigins.win/raw?url=',
-    'https://corsproxy.io/?url='
-  ];
-
+  const proxies = ['https://api.allorigins.win/raw?url=','https://corsproxy.io/?url='];
   let text = null;
   for (const proxy of proxies) {
     try {
       const ctrl = new AbortController();
-      const timer = setTimeout(() => ctrl.abort(), 8000);
-      const res = await fetch(proxy + encodeURIComponent(rssUrl), { signal: ctrl.signal });
+      const timer = setTimeout(()=>ctrl.abort(), 8000);
+      const res = await fetch(proxy + encodeURIComponent(rssUrl), {signal:ctrl.signal});
       clearTimeout(timer);
       if (res.ok) { text = await res.text(); break; }
-    } catch { /* 다음 프록시 시도 */ }
+    } catch {}
   }
-  if (!text) return; // 실패 시 예비 데이터 유지
-
-  const xml = new DOMParser().parseFromString(text, 'application/xml');
-  const entries = Array.from(xml.querySelectorAll('entry'));
-
-  const all = entries.map(e => {
-    const id    = e.querySelector('videoId')?.textContent?.trim();
-    const raw   = e.querySelector('title')?.textContent || '';
-    const pub   = e.querySelector('published')?.textContent || '';
-    const date  = pub.substring(0, 10);
-    const isSun = /주일/.test(raw);
-    const isFri = /금요/.test(raw);
-    return { id, title: cleanTitle(raw), ref: extractRef(raw), date,
-             preacher: '안병국 담임목사', isSun, isFri };
-  }).filter(v => v.id && (v.isSun || v.isFri));
-
-  const newSun = all.filter(v => v.isSun).slice(0, 6);
-  const newFri = all.filter(v => v.isFri).slice(0, 6);
-
-  if (newSun.length) { liveSunday = newSun; if (curTab === 'sun') renderSermons(liveSunday, 'sun'); }
-  if (newFri.length) { liveFriday = newFri; if (curTab === 'fri') renderSermons(liveFriday, 'fri'); }
-
-  if (newSun.length || newFri.length) {
-    const badge = document.getElementById('liveBadge');
-    if (badge) badge.style.display = 'inline-flex';
+  if (!text) return;
+  const xml = new DOMParser().parseFromString(text,'application/xml');
+  const all = Array.from(xml.querySelectorAll('entry')).map(e => {
+    const id  = e.querySelector('videoId')?.textContent?.trim();
+    const raw = e.querySelector('title')?.textContent||'';
+    const pub = e.querySelector('published')?.textContent||'';
+    const isSun = /주일/.test(raw), isFri = /금요/.test(raw);
+    return {id, title:cleanTitle(raw), ref:extractRef(raw), date:pub.substring(0,10), preacher:'안병국 담임목사', isSun, isFri};
+  }).filter(v=>v.id&&(v.isSun||v.isFri));
+  const newSun = all.filter(v=>v.isSun).slice(0,6);
+  const newFri = all.filter(v=>v.isFri).slice(0,6);
+  if (newSun.length) { liveSunday = newSun; if(curTab==='sun') renderSermons(liveSunday,'sun'); }
+  if (newFri.length) { liveFriday = newFri; if(curTab==='fri') renderSermons(liveFriday,'fri'); }
+  if (newSun.length||newFri.length) {
+    const b = document.getElementById('liveBadge');
+    if (b) b.style.display='inline-flex';
   }
 }
 
 function switchTab(tab, btn) {
   curTab = tab;
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
   btn.classList.add('on');
-  const data = tab === 'sun' ? (liveSunday || SUNDAY) : (liveFriday || FRIDAY);
-  renderSermons(data, tab);
+  renderSermons(tab==='sun'?(liveSunday||SUNDAY):(liveFriday||FRIDAY), tab);
 }
 
 function renderSermons(list, type) {
-  const g = document.getElementById('sermonGrid');
-  const isFri = type === 'fri';
-  g.innerHTML = list.map(s => `
+  const isFri = type==='fri';
+  document.getElementById('sermonGrid').innerHTML = list.map(s=>`
     <div class="s-card" onclick="openVid('${s.id}')">
       <div class="s-thumb">
         <img src="https://img.youtube.com/vi/${s.id}/maxresdefault.jpg"
@@ -1181,26 +1086,24 @@ function renderSermons(list, type) {
         <h4>${s.title}</h4>
         <div class="s-preacher"><i class="fas fa-user" style="margin-right:.3rem"></i>${s.preacher}</div>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
 let curPraiseTab = 'praise';
 
 function switchPraise(tab, btn) {
   curPraiseTab = tab;
-  document.querySelectorAll('.praise-tab').forEach(t => t.classList.remove('on'));
+  document.querySelectorAll('.praise-tab').forEach(t=>t.classList.remove('on'));
   btn.classList.add('on');
-  renderPraise(tab === 'praise' ? PRAISE : CHOIR);
+  renderPraise(tab==='praise'?PRAISE:CHOIR);
 }
 
 function renderPraise(list) {
-  const g = document.getElementById('praiseGrid');
-  const isChoir = curPraiseTab === 'choir';
-  const badgeCls = isChoir ? 'choir' : 'praise';
-  const badgeLabel = isChoir ? 'KCW 중창단' : '특별 찬양';
-  const artistColor = isChoir ? '#C9A227' : '#7B5EA7';
-  g.innerHTML = list.map(s => `
+  const isChoir = curPraiseTab==='choir';
+  const badgeCls   = isChoir?'choir':'praise';
+  const badgeLabel = isChoir?'KCW 중창단':'특별 찬양';
+  const color      = isChoir?'#C9A227':'#7B5EA7';
+  document.getElementById('praiseGrid').innerHTML = list.map(s=>`
     <div class="s-card" onclick="openVid('${s.id}')">
       <div class="s-thumb">
         <img src="https://img.youtube.com/vi/${s.id}/maxresdefault.jpg"
@@ -1212,125 +1115,74 @@ function renderPraise(list) {
       <div class="s-info">
         <div class="s-date"><i class="fas fa-calendar-alt" style="margin-right:.3rem"></i>${s.date}</div>
         <h4>${s.title}</h4>
-        <div class="s-preacher" style="color:${artistColor}"><i class="fas fa-microphone" style="margin-right:.3rem"></i>${s.artist}</div>
+        <div class="s-preacher" style="color:${color}"><i class="fas fa-microphone" style="margin-right:.3rem"></i>${s.artist}</div>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
+// ══════════════════════════════════════════════
+//  소식 / 주보 렌더
+// ══════════════════════════════════════════════
+
 function renderNews() {
-  document.getElementById('newsArea').innerHTML = NEWS.map(n => `
+  document.getElementById('newsArea').innerHTML = NEWS.map(n=>`
     <div class="ni">
       <span class="ni-cat ${n.cls}">${n.cat}</span>
       <h4>${n.title}</h4>
       <p>${n.body}</p>
-    </div>
-  `).join('');
-
-  document.getElementById('eventsArea').innerHTML = EVENTS.map(e => `
+    </div>`).join('');
+  document.getElementById('eventsArea').innerHTML = EVENTS.map(e=>`
     <div class="ev">
       <div class="ev-date"><div class="d">${e.day}</div><div class="m">${e.mon}</div></div>
       <div class="ev-info"><h4>${e.title}</h4><p>${e.sub}</p></div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
 function renderBulletins() {
-  document.getElementById('pastBulletins').innerHTML = PAST_BULS.map(b => `
+  document.getElementById('pastBulletins').innerHTML = PAST_BULS.map(b=>`
     <div class="bli">
       <div>
         <div class="bli-title">${b.title}</div>
         <div class="bli-date">${b.date}</div>
       </div>
-      <a href="${b.url}" download class="bli-dl" title="다운로드">
-        <i class="fas fa-download"></i>
-      </a>
-    </div>
-  `).join('');
+      <a href="${b.url}" download class="bli-dl" title="다운로드"><i class="fas fa-download"></i></a>
+    </div>`).join('');
 }
 
-function openVid(id) {
-  document.getElementById('vidFrame').src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
-  document.getElementById('vidModal').classList.add('on');
-  document.body.style.overflow = 'hidden';
-}
-function closeVid() {
-  document.getElementById('vidModal').classList.remove('on');
-  document.getElementById('vidFrame').src = '';
-  document.body.style.overflow = '';
-}
-function closeModalBg(e) {
-  if (e.target === document.getElementById('vidModal')) closeVid();
-}
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVid(); });
+// ══════════════════════════════════════════════
+//  갤러리 매거진
+// ══════════════════════════════════════════════
 
-document.getElementById('visitForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  toast('방문 신청이 완료되었습니다! 곧 연락드리겠습니다 🙏');
-  this.reset();
-});
-
-function toast(msg, dur=4200) {
-  const el = document.getElementById('toast');
-  document.getElementById('toastMsg').textContent = msg;
-  el.classList.add('on');
-  setTimeout(() => el.classList.remove('on'), dur);
-}
-
-function toggleNav() {
-  document.getElementById('navLinks').classList.toggle('open');
-}
-document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-});
-
-window.addEventListener('scroll', () => {
-  document.getElementById('nav').style.boxShadow =
-    window.scrollY > 50 ? '0 4px 20px rgba(0,0,0,.13)' : '0 2px 12px rgba(0,0,0,.06)';
-});
-
-// PHOTOS 배열은 photos-data.js 에서 로드됩니다
-
-// ── 갤러리 매거진 ──
-let curFilter = 'all';
-let lbIndex = 0;
-let filteredPhotos = [];
-let galIdx = 0;
-let galTimer = null;
+let curFilter='all', lbIndex=0, filteredPhotos=[], galIdx=0, galTimer=null;
 const GAL_INTERVAL = 5000;
 
 function renderGallery(cat) {
   curFilter = cat;
-  filteredPhotos = cat === 'all' ? PHOTOS : PHOTOS.filter(p => p.cat === cat);
+  filteredPhotos = cat==='all' ? PHOTOS : PHOTOS.filter(p=>p.cat===cat);
   galIdx = 0;
   buildMagazine();
 }
 
 function filterGal(cat, btn) {
-  document.querySelectorAll('.gal-btn').forEach(b => b.classList.remove('on'));
+  document.querySelectorAll('.gal-btn').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
   renderGallery(cat);
 }
 
 function buildMagazine() {
-  const n = filteredPhotos.length;
   const dotsEl = document.getElementById('galDots');
-
-  if (!n) {
-    document.getElementById('galHeroImg').src = '';
-    document.getElementById('galHeroCap').textContent = '사진을 준비 중입니다 📷';
-    document.getElementById('galHeroTag').textContent = '';
-    document.getElementById('galHeroDate').textContent = '';
-    document.getElementById('galThumbs').innerHTML = '';
-    dotsEl.innerHTML = '';
-    stopGalAuto();
-    return;
+  if (!filteredPhotos.length) {
+    document.getElementById('galHeroImg').src='';
+    document.getElementById('galHeroCap').textContent='사진을 준비 중입니다 📷';
+    document.getElementById('galHeroTag').textContent='';
+    document.getElementById('galHeroDate').textContent='';
+    document.getElementById('galThumbs').innerHTML='';
+    dotsEl.innerHTML='';
+    stopGalAuto(); return;
   }
-
-  dotsEl.innerHTML = filteredPhotos.map((_, i) =>
+  dotsEl.innerHTML = filteredPhotos.map((_,i)=>
     `<button class="gal-dot${i===0?' on':''}" onclick="galPickHero(${i})"></button>`
   ).join('');
-
   updateMagazine(false);
   startGalAuto();
 }
@@ -1338,110 +1190,111 @@ function buildMagazine() {
 function updateMagazine(animate) {
   const n = filteredPhotos.length;
   const p = filteredPhotos[galIdx];
-
-  // 히어로 이미지 교체
   const img = document.getElementById('galHeroImg');
   if (animate) {
-    img.style.opacity = '0';
-    setTimeout(() => { img.src = p.src; img.alt = p.caption; img.style.opacity = '1'; }, 220);
-  } else {
-    img.src = p.src; img.alt = p.caption;
-  }
+    img.style.opacity='0';
+    setTimeout(()=>{ img.src=p.src; img.alt=p.caption; img.style.opacity='1'; }, 220);
+  } else { img.src=p.src; img.alt=p.caption; }
   document.getElementById('galHeroTag').textContent  = p.cat;
   document.getElementById('galHeroCap').textContent  = p.caption;
   document.getElementById('galHeroDate').textContent = p.date;
-  document.getElementById('galHeroCur').textContent  = galIdx + 1;
+  document.getElementById('galHeroCur').textContent  = galIdx+1;
   document.getElementById('galHeroTot').textContent  = n;
-
-  // 썸네일 4장 (히어로 다음 순서)
-  document.getElementById('galThumbs').innerHTML = [1,2,3,4].map(offset => {
-    const idx = (galIdx + offset) % n;
-    const tp  = filteredPhotos[idx];
-    return `
-      <div class="gal-thumb" onclick="galPickHero(${idx})">
-        <img src="${tp.src}" alt="${tp.caption}" loading="lazy" onerror="this.style.opacity='.15'">
-        <div class="gal-thumb-ov"><div class="gal-thumb-cap">${tp.caption}</div></div>
-        <div class="gal-thumb-num">${idx + 1}</div>
-      </div>`;
+  document.getElementById('galThumbs').innerHTML = [1,2,3,4].map(offset=>{
+    const idx=(galIdx+offset)%n, tp=filteredPhotos[idx];
+    return `<div class="gal-thumb" onclick="galPickHero(${idx})">
+      <img src="${tp.src}" alt="${tp.caption}" loading="lazy" onerror="this.style.opacity='.15'">
+      <div class="gal-thumb-ov"><div class="gal-thumb-cap">${tp.caption}</div></div>
+      <div class="gal-thumb-num">${idx+1}</div>
+    </div>`;
   }).join('');
-
-  // 점 표시기
-  document.querySelectorAll('.gal-dot').forEach((d, i) => d.classList.toggle('on', i === galIdx));
-
-  // 진행 바 리셋
+  document.querySelectorAll('.gal-dot').forEach((d,i)=>d.classList.toggle('on',i===galIdx));
   const bar = document.getElementById('galHeroBar');
   if (bar) {
-    bar.style.transition = 'none'; bar.style.width = '0%';
-    requestAnimationFrame(() => {
-      bar.style.transition = `width ${GAL_INTERVAL}ms linear`;
-      bar.style.width = '100%';
-    });
+    bar.style.transition='none'; bar.style.width='0%';
+    requestAnimationFrame(()=>{ bar.style.transition=`width ${GAL_INTERVAL}ms linear`; bar.style.width='100%'; });
   }
 }
 
-function galPickHero(idx) {
-  galIdx = idx;
-  updateMagazine(true);
-  restartGalAuto();
-}
-
+function galPickHero(idx) { galIdx=idx; updateMagazine(true); restartGalAuto(); }
 function startGalAuto() {
   stopGalAuto();
-  if (filteredPhotos.length <= 1) return;
-  galTimer = setInterval(() => {
-    galIdx = (galIdx + 1) % filteredPhotos.length;
-    updateMagazine(true);
-  }, GAL_INTERVAL);
+  if (filteredPhotos.length<=1) return;
+  galTimer = setInterval(()=>{ galIdx=(galIdx+1)%filteredPhotos.length; updateMagazine(true); }, GAL_INTERVAL);
 }
-
-function stopGalAuto()    { if (galTimer) { clearInterval(galTimer); galTimer = null; } }
+function stopGalAuto()    { if(galTimer){clearInterval(galTimer);galTimer=null;} }
 function restartGalAuto() { stopGalAuto(); startGalAuto(); }
 
 // ── 라이트박스 ──
 function openLb(idx) {
-  lbIndex = idx;
-  showLb();
+  lbIndex=idx; showLb();
   document.getElementById('galLb').classList.add('on');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
-
 function showLb() {
-  const p = filteredPhotos[lbIndex];
-  document.getElementById('galLbImg').src = p.src;
-  document.getElementById('galLbTag').textContent = p.cat;
-  document.getElementById('galLbCap').textContent = p.caption;
-  document.getElementById('galLbDate').textContent = p.date;
+  const p=filteredPhotos[lbIndex];
+  document.getElementById('galLbImg').src=p.src;
+  document.getElementById('galLbTag').textContent=p.cat;
+  document.getElementById('galLbCap').textContent=p.caption;
+  document.getElementById('galLbDate').textContent=p.date;
 }
-
-function lbNav(dir) {
-  lbIndex = (lbIndex + dir + filteredPhotos.length) % filteredPhotos.length;
-  showLb();
-}
-
-function closeLb() {
-  document.getElementById('galLb').classList.remove('on');
-  document.body.style.overflow = '';
-}
-
-function closeLbBg(e) {
-  if (e.target === document.getElementById('galLb')) closeLb();
-}
-
-document.addEventListener('keydown', e => {
+function lbNav(dir) { lbIndex=(lbIndex+dir+filteredPhotos.length)%filteredPhotos.length; showLb(); }
+function closeLb() { document.getElementById('galLb').classList.remove('on'); document.body.style.overflow=''; }
+function closeLbBg(e) { if(e.target===document.getElementById('galLb')) closeLb(); }
+document.addEventListener('keydown', e=>{
   if (!document.getElementById('galLb').classList.contains('on')) return;
-  if (e.key === 'Escape') closeLb();
-  if (e.key === 'ArrowLeft')  lbNav(-1);
-  if (e.key === 'ArrowRight') lbNav(1);
+  if(e.key==='Escape') closeLb();
+  if(e.key==='ArrowLeft')  lbNav(-1);
+  if(e.key==='ArrowRight') lbNav(1);
 });
 
-renderSermons(SUNDAY, 'sun');
+// ══════════════════════════════════════════════
+//  동영상 모달 / 유틸
+// ══════════════════════════════════════════════
+
+function openVid(id) {
+  document.getElementById('vidFrame').src=`https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+  document.getElementById('vidModal').classList.add('on');
+  document.body.style.overflow='hidden';
+}
+function closeVid() {
+  document.getElementById('vidModal').classList.remove('on');
+  document.getElementById('vidFrame').src='';
+  document.body.style.overflow='';
+}
+function closeModalBg(e) { if(e.target===document.getElementById('vidModal')) closeVid(); }
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeVid(); });
+
+document.getElementById('visitForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  toast('방문 신청이 완료되었습니다! 곧 연락드리겠습니다 🙏');
+  this.reset();
+});
+function toast(msg,dur=4200){
+  const el=document.getElementById('toast');
+  document.getElementById('toastMsg').textContent=msg;
+  el.classList.add('on');
+  setTimeout(()=>el.classList.remove('on'),dur);
+}
+function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));
+});
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').style.boxShadow =
+    window.scrollY>50?'0 4px 20px rgba(0,0,0,.13)':'0 2px 12px rgba(0,0,0,.06)';
+});
+
+// ══════════════════════════════════════════════
+//  초기화
+// ══════════════════════════════════════════════
+renderSermons(SUNDAY,'sun');
 renderPraise(PRAISE);
 renderNews();
 renderBulletins();
 renderGallery('all');
-fetchLiveSermons(); // YouTube RSS 자동 업데이트
+fetchLiveSermons();
 
-// 갤러리 호버 시 자동 슬라이드 일시 정지
 const _gc = document.getElementById('galMag');
 if (_gc) {
   _gc.addEventListener('mouseenter', stopGalAuto);
