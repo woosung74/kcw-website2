@@ -10,25 +10,51 @@
 const PHOTOS = [
 
   {
-    src:     'photos/gallery-outing.jpg',
-    cat:     '친교',
+    src: 'photos/gallery-outing.jpg',
+    cat: '친교',
     caption: '교회 야외 나들이',
-    date:    '2025년 가을'
+    date: '2025년 가을'
   },
   {
-    src:     'photos/gallery-cafe.jpg',
-    cat:     '청소년',
+    src: 'photos/gallery-cafe.jpg',
+    cat: '청소년',
     caption: 'Youth 카페 미니스트리',
-    date:    '2025년'
+    date: '2025년'
   },
   {
-    src:     'photos/gallery-training.jpg',
-    cat:     '훈련',
+    src: 'photos/gallery-training.jpg',
+    cat: '훈련',
     caption: '목자 훈련 학교 (Discipleship Leader Training)',
-    date:    '2025년'
+    date: '2025년'
   },
-
+  {
+    src: 'photos/youth-fundraiser.jpg',
+    cat: '청소년',
+    caption: 'Youth Group Fundraiser',
+    date: '2025년'
+  },
+  {
+    src: 'photos/fellowship-seniors.jpg',
+    cat: '친교',
+    caption: '교회 성도님들 친교 모임',
+    date: '2025년'
+  },
   // ↓↓↓  새 사진은 여기 아래에 추가하세요  ↓↓↓
+
+
+
+  //{
+  //  src: 'photos/youth-fundraiser.jpg',
+  //  cat: '청소년',
+  //  caption: 'Youth Group Fundraiser',
+  //  date: '2025년'
+  //},
+  //{
+  //  src: 'photos/fellowship-seniors.jpg',
+  //  cat: '친교',
+  //  caption: '교회 성도님들 친교 모임',
+  //  date: '2025년'
+  //},
 
   // {
   //   src:     'photos/파일명.jpg',
