@@ -3028,21 +3028,21 @@
     // ══════════════════════════════════════════════
 
     const SUNDAY = [
-      { id: '', title: '나는 왜 결혼했을까', date: '2026-05-17', preacher: '안병국 담임목사', ref: '엡 5:22-27 · 가정의달 특별설교 3' },
-      { id: '_euKMIRuWCE', title: '아픔의 대물림 끊어내기', date: '2026-05-10', preacher: '안병국 담임목사', ref: '엡 6:1-3 · 가정의달 특별설교 2' },
-      { id: 'x3tazGuRHCc', title: '가정을 세우는 5단계 리모델링', date: '2026-05-04', preacher: '안병국 담임목사', ref: '가정의달 특별설교 1' },
-      { id: 'uyRrNpvHjM8', title: '광야의 약탈자 상대하기', date: '2026-04-27', preacher: '안병국 담임목사', ref: '출애굽기 17:8-16' },
-      { id: '4FJ1dibjyvM', title: '하나님은 계획이 있으시다', date: '2026-04-20', preacher: '안병국 담임목사', ref: '출애굽기 17:1-7' },
-      { id: 'uNv5__PpLyA', title: '만나는 충분히 내린다', date: '2026-04-13', preacher: '안병국 담임목사', ref: '출애굽기 16:1-12' },
+      { id: '9vAGilYdpeQ', title: '나는 왜 결혼했을까',             date: '2026-05-17', preacher: '안병국 담임목사', ref: '엡 5:22-27 · 가정의달 특별설교 3' },
+      { id: '_euKMIRuWCE', title: '아픔의 대물림 끊어내기',         date: '2026-05-10', preacher: '안병국 담임목사', ref: '엡 6:1-3 · 가정의달 특별설교 2' },
+      { id: 'x3tazGuRHCc', title: '가정을 세우는 5단계 리모델링',   date: '2026-05-03', preacher: '안병국 담임목사', ref: '가정의달 특별설교 1' },
+      { id: 'uyRrNpvHjM8', title: '광야의 약탈자 상대하기',         date: '2026-04-27', preacher: '안병국 담임목사', ref: '출애굽기 17:8-16' },
+      { id: '4FJ1dibjyvM', title: '하나님은 계획이 있으시다',       date: '2026-04-20', preacher: '안병국 담임목사', ref: '출애굽기 17:1-7' },
+      { id: 'uNv5__PpLyA', title: '만나는 충분히 내린다',           date: '2026-04-13', preacher: '안병국 담임목사', ref: '출애굽기 16:1-12' },
     ];
 
     const FRIDAY = [
-      { id: 'y27JpzZw0D4', title: '네 종류의 문제, 하나님의 답', date: '2026-05-02', preacher: '안병국 담임목사', ref: '시편 107:1-32' },
-      { id: '6axJq9H-6KA', title: '기도로 하나님의 마음을 바꾼다', date: '2026-04-25', preacher: '안병국 담임목사', ref: '시편 106:23 · 출 32:11-14' },
-      { id: 'qk9MsK7w8yw', title: '위기를 넘어선 교회', date: '2026-04-18', preacher: '안병국 담임목사', ref: '사도행전 6:1-7' },
-      { id: 'A0Xx3o6fyjg', title: '기도하는 집으로 불리는 교회', date: '2026-04-11', preacher: '안병국 담임목사', ref: '사도행전 4:23-31' },
-      { id: 'FwpK2ye_hUE', title: '세상이 관심을 보이는 유니크한 교회', date: '2026-04-04', preacher: '안병국 담임목사', ref: '사도행전 2:43-47' },
-      { id: '45BIheHMvpo', title: '성령으로 충만한 교회', date: '2026-03-27', preacher: '안병국 담임목사', ref: '사도행전 2:1-5, 16-21' },
+      { id: 'FVRr97dPC-g', title: '나는 기도의 사람입니다',         date: '2026-05-22', preacher: '안병국 담임목사', ref: '시편 · 금요 성령 기도회' },
+      { id: '9BcuwtFDq8A', title: '하나님이 높이시는 때가 온다',    date: '2026-05-16', preacher: '안병국 담임목사', ref: '시편 · 금요 성령 기도회' },
+      { id: '6axJq9H-6KA', title: '기도로 하나님의 마음을 바꾼다', date: '2026-05-02', preacher: '안병국 담임목사', ref: '시편 106:23 · 출 32:11-14' },
+      { id: 'qk9MsK7w8yw', title: '위기를 넘어선 교회',             date: '2026-04-25', preacher: '안병국 담임목사', ref: '사도행전 6:1-7' },
+      { id: 'A0Xx3o6fyjg', title: '기도하는 집으로 불리는 교회',   date: '2026-04-18', preacher: '안병국 담임목사', ref: '사도행전 4:23-31' },
+      { id: 'FwpK2ye_hUE', title: '세상이 관심을 보이는 유니크한 교회', date: '2026-04-11', preacher: '안병국 담임목사', ref: '사도행전 2:43-47' },
     ];
 
     const PRAISE = [
@@ -3125,9 +3125,12 @@
       return raw
         .replace(/^\s*\(주일\s*예배\)\s*/i, '')
         .replace(/^\s*\(금요성령기도회\)\s*/i, '')
+        .replace(/^\s*\[가정회복\d*\]\s*/i, '')
+        .replace(/^\s*\(출\d+\)\s*/i, '')
         .replace(/\s*\/\s*[A-Z][^/ㄱ-힣]*$/, '')
         .replace(/\s*\/\s*안병국\s*담임목사\s*$/i, '')
         .replace(/\s*\/\s*[^/]+목사\s*$/i, '')
+        .replace(/^[""]|[""]$/g, '')
         .replace(/~\s*/g, '-').trim();
     }
     function extractRef(raw) {
@@ -3154,7 +3157,14 @@
         const id = e.querySelector('videoId')?.textContent?.trim();
         const raw = e.querySelector('title')?.textContent || '';
         const pub = e.querySelector('published')?.textContent || '';
-        const isSun = /주일/.test(raw), isFri = /금요/.test(raw);
+        const isFri = /금요/.test(raw);
+        // 주일 설교 감지: 명시적 주일 표기 OR 가정회복/시리즈 설교 제목 OR 찬양·중창단이 아닌 것
+        const isSun = !isFri && (
+          /주일/.test(raw) ||
+          /가정회복/.test(raw) ||
+          /^\s*\[/.test(raw) ||
+          /^\s*\(출\d/.test(raw)
+        );
         return { id, title: cleanTitle(raw), ref: extractRef(raw), date: pub.substring(0, 10), preacher: '안병국 담임목사', isSun, isFri };
       }).filter(v => v.id && (v.isSun || v.isFri));
       const newSun = all.filter(v => v.isSun).slice(0, 6);
